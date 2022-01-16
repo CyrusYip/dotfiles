@@ -108,6 +108,7 @@ Plug '907th/vim-auto-save'
 " Plug 'flazz/vim-colorschemes'
 Plug 'morhetz/gruvbox'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'machakann/vim-highlightedyank'
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'lifepillar/vim-solarized8'
 " Plug 'endel/vim-github-colorscheme'
