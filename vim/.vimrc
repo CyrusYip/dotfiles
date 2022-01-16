@@ -114,8 +114,8 @@ Plug 'sonph/onehalf', { 'rtp': 'vim' }
 call plug#end()
 
 " fzf keybindings
-nnoremap <silent> <C-f> :Files<CR>
-nnoremap <silent> <Leader>f :Rg<CR>
+" nnoremap <silent> <C-f> :Files<CR>
+" nnoremap <silent> <Leader>f :Rg<CR>
 
 " replace grep with rg
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
