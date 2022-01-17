@@ -109,6 +109,8 @@ Plug '907th/vim-auto-save'
 Plug 'morhetz/gruvbox'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'machakann/vim-highlightedyank'
+Plug 'tpope/vim-surround'
+Plug 'AndrewRadev/tagalong.vim'
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'lifepillar/vim-solarized8'
 " Plug 'endel/vim-github-colorscheme'
