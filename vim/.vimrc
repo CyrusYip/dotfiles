@@ -125,9 +125,14 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 " Plug 'endel/vim-github-colorscheme'
 call plug#end()
 
+" keybindings
+
 " fzf keybindings
 " nnoremap <silent> <C-f> :Files<CR>
 " nnoremap <silent> <Leader>f :Rg<CR>
+
+" clear search highlight 
+nnoremap <esc><esc> :noh<return><esc>
 
 " replace grep with rg
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
