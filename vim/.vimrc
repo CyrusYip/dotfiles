@@ -118,6 +118,8 @@ Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/tagalong.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
+Plug 'luochen1990/rainbow'
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'lifepillar/vim-solarized8'
 " Plug 'endel/vim-github-colorscheme'
