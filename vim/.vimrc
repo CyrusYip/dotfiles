@@ -59,7 +59,7 @@ set numberwidth=1
 " set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " enable clipboard
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " show whitespaces
 :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
