@@ -25,6 +25,7 @@ if has("vms")
 else
   set backup		" keep a backup file (restore to previous version)
   if has('persistent_undo')
+    set undodir=~/.vim/undo_dir " todo: create dir if notexit
     set undofile	" keep an undo file (undo changes after closing)
   endif
 endif
@@ -123,6 +124,8 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 " Plug 'altercation/vim-colors-solarized'
 " Plug 'lifepillar/vim-solarized8'
 " Plug 'endel/vim-github-colorscheme'
+Plug 'junegunn/vim-peekaboo'
+Plug 'simnalamburt/vim-mundo'
 call plug#end()
 
 " keybindings
