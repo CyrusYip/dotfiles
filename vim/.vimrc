@@ -152,3 +152,6 @@ endif
 set background=light
 colorscheme gruvbox
 " colo seoul256-light
+
+" case insensitive
+set ignorecase smartcase
