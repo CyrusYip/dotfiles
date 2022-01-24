@@ -25,7 +25,7 @@ if has("vms")
 else
   set backup		" keep a backup file (restore to previous version)
   if has('persistent_undo')
-    set undodir=~/.vim/undo_dir " todo: create dir if notexit
+    " set undodir=~/.vim/undo_dir " todo: create dir if notexit
     set undofile	" keep an undo file (undo changes after closing)
   endif
 endif
