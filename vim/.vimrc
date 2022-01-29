@@ -56,15 +56,12 @@ endif
 " show number
 set number relativenumber
 set numberwidth=1
-" set laststatus=2
-" set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " enable clipboard
 set clipboard^=unnamed,unnamedplus
 
 " show whitespaces
 :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
-":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 ":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 ":set list
 
@@ -88,11 +85,6 @@ set expandtab       " Expand TABs to spaces
 
 filetype plugin on
 
-" autosave
-" autocmd TextChanged,TextChangedI <buffer> silent write
-" disable persistent undo
-" set noundofile
-
 " switch buffers without saving
 set hidden
 
@@ -104,6 +96,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
+
 " plugins
 call plug#begin()
 Plug 'junegunn/fzf.vim'
