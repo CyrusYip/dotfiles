@@ -137,9 +137,17 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 if (has("termguicolors"))
   set termguicolors
 endif
-" if $TERM == "xterm-256color"
-"   set t_Co=256
-" endif
+if $TERM == "xterm-256color"
+  set t_Co=256
+endif
+
+" tmux color
+set term=xterm-256color
+if &term =~ '256color'
+  " Disable Background Color Erase (BCE) so that color schemes work
+  " properly within 256-color terminals
+  set t_ut=
+endif
 
 " theme
 set background=light
