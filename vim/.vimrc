@@ -123,6 +123,7 @@ Plug 'simnalamburt/vim-mundo'
 " Markdown
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
+let g:vim_markdown_toc_autofit = 1
 call plug#end()
 
 " keybindings
@@ -137,7 +138,7 @@ nnoremap <esc><esc> :noh<return><esc>
 " replace grep with rg
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
-"true color
+" true color
 if (has("termguicolors"))
   set termguicolors
 endif
