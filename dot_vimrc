@@ -1,2 +1,3 @@
 set nu rnu
 set hlsearch
+set numberwidth=1
