@@ -132,6 +132,9 @@ Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 let g:vim_markdown_toc_autofit = 1
 
+" auto detect indent
+Plug 'tpope/vim-sleuth'
+
 " coc auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Use tab for trigger completion with characters ahead and navigate.
