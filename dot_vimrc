@@ -197,5 +197,5 @@ colorscheme gruvbox
 " case insensitive
 set ignorecase smartcase
 
-" vertical wildmenu
-set wildoptions=pum
+" vertical and fuzzy wildmenu
+set wildoptions=fuzzy,pum
