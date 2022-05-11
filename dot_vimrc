@@ -196,3 +196,6 @@ colorscheme gruvbox
 
 " case insensitive
 set ignorecase smartcase
+
+" vertical wildmenu
+set wildoptions=pum
