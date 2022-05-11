@@ -199,3 +199,6 @@ set ignorecase smartcase
 
 " vertical and fuzzy wildmenu
 set wildoptions=fuzzy,pum
+
+" auto wrap in vimdiff
+au VimEnter * if &diff | execute 'windo set wrap' | endif
