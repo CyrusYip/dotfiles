@@ -61,9 +61,9 @@ set numberwidth=1
 set clipboard^=unnamed,unnamedplus
 
 " show whitespaces
-:set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 ":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-":set list
+set list
 
 " indent
 set smartindent
