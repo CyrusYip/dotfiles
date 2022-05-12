@@ -170,6 +170,9 @@ nnoremap <esc><esc> :noh<return><esc>
 " replace grep with rg
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 
+" <Leader> to space
+let mapleader = "\<space>"
+
 " true color
 if (has("termguicolors"))
   set termguicolors
