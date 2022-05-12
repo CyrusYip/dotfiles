@@ -125,6 +125,7 @@ let g:lightline = {
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 let g:vim_markdown_toc_autofit = 1
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " auto detect indent
 Plug 'tpope/vim-sleuth'
