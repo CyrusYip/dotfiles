@@ -174,3 +174,7 @@ export EDITOR='vim'
 
 # zoxide
 eval "$(zoxide init zsh)"
+
+# nix path
+if [ -d ~/.nix-profile/bin ]; then export PATH=~/.nix-profile/bin:$PATH; fi
+
