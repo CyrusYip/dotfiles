@@ -1,4 +1,6 @@
-
+" fix vim error E474
+" https://stackoverflow.com/q/18321538/14399237
+set encoding=utf-8
 " An example for a vimrc file.
 "
 " Maintainer:	Bram Moolenaar <Bram@vim.org>
