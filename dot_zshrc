@@ -121,7 +121,7 @@ autoload -U compinit
 compinit -i
 
 # export PATH="$PATH:$(yarn global bin)"
-export PATH=~/bin/:$PATH
+export PATH=~/bin:$PATH
 
 
 
