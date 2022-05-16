@@ -123,9 +123,9 @@ let g:lightline = {
       \ }
 
 " Markdown
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
+Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 let g:vim_markdown_toc_autofit = 1
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 " enable number in goyo
