@@ -124,15 +124,17 @@ let g:lightline = {
 
 " Markdown
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+function! s:goyo_enter()
+  set number relativenumber
+  " cursor location
+  :file
+  nnoremap <esc><esc> <c-g>
+endfunction
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 let g:vim_markdown_toc_autofit = 1
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-" enable number in goyo
-function! s:goyo_enter()
-  set number relativenumber
-endfunction
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
 " auto detect indent
 Plug 'tpope/vim-sleuth'
