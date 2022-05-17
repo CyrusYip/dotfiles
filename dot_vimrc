@@ -199,7 +199,9 @@ if &term =~ '256color'
   set t_ut=
 endif
 
-" theme
+" enable italic in gruvbox
+let g:gruvbox_italic=1
+" colorscheme
 colorscheme gruvbox
 " dark background for tty
 if $TERM == 'linux'
@@ -207,7 +209,6 @@ if $TERM == 'linux'
 else
   set background=light
 endif
-" colo seoul256-light
 
 " case insensitive
 set ignorecase smartcase
