@@ -200,8 +200,13 @@ if &term =~ '256color'
 endif
 
 " theme
-set background=light
 colorscheme gruvbox
+" dark background for tty
+if $TERM == 'linux'
+  set background=dark
+else
+  set background=light
+endif
 " colo seoul256-light
 
 " case insensitive
