@@ -137,6 +137,7 @@ let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_conceal_code_blocks = 0
+autocmd FileType markdown setlocal conceallevel=2 " syntax concealing
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " auto detect indent
