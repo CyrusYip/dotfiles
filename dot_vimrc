@@ -134,6 +134,9 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown', { 'for': 'markdown' }
 let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_conceal_code_blocks = 0
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " auto detect indent
