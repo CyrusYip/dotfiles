@@ -147,7 +147,10 @@ compctl -K _pip_completion pip
 
 source /usr/share/nvm/init-nvm.sh
 
-eval $(thefuck --alias)
+# thefuck
+if [ -x "$(command -v thefuck)" ]; then
+  eval $(thefuck --alias)
+fi
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
