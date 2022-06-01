@@ -234,3 +234,9 @@ set wildoptions=fuzzy,pum
 
 " auto wrap in vimdiff
 au VimEnter * if &diff | execute 'windo set wrap' | endif
+
+" cursor shape
+" https://stackoverflow.com/a/70135079/14399237
+let &t_SI.="\e[6 q" "SI = INSERT mode, 6 = solid line
+let &t_SR.="\e[4 q" "SR = REPLACE mode, 4 = solid underscore
+let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE), 2 = solid block
