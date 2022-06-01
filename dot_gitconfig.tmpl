@@ -1,0 +1,28 @@
+{{ if eq .chezmoi.hostname "magicbook14" -}}
+[user]
+	name = Cyrus Yip
+	email = 60951091+CyrusYip@users.noreply.github.com
+	signingkey = 185BA67A4596FD3C
+[commit]
+	gpgsign = true
+{{- end }}
+[core]
+	editor = vim
+	quotepath = false
+	{{ if eq .chezmoi.os "linux" -}}
+	autocrlf = input
+	{{- end }}
+[gui]
+	encoding = utf-8
+[i18n]
+	commitencoding = utf-8
+	logoutputencoding = utf-8
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential]
+	helper = cache
