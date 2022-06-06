@@ -240,3 +240,6 @@ au VimEnter * if &diff | execute 'windo set wrap' | endif
 let &t_SI.="\e[6 q" "SI = INSERT mode, 6 = solid line
 let &t_SR.="\e[4 q" "SR = REPLACE mode, 4 = solid underscore
 let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE), 2 = solid block
+
+" clean vim, used for fast macro replaying
+:command Cv w | wviminfo | !vim --clean -i ~/.viminfo %
