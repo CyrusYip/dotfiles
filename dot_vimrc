@@ -1,3 +1,6 @@
+" fold this file with [[[ and ]]]
+" vim:foldmethod=marker:foldmarker=[[[,]]]
+
 " fix vim error E474
 " https://stackoverflow.com/q/18321538/14399237
 set encoding=utf-8
