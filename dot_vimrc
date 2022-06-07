@@ -112,13 +112,6 @@ let &t_SI.="\e[6 q" "SI = INSERT mode, 6 = solid line
 let &t_SR.="\e[4 q" "SR = REPLACE mode, 4 = solid underscore
 let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE), 2 = solid block
 " ]]]
-" Install vim-plug for vim on unix if not found
-if !has('nvim') && has('unix')
-  if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  endif
-endif
 " plugins[[[
 call plug#begin()
 Plug 'junegunn/fzf.vim'
