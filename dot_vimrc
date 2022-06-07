@@ -1,10 +1,7 @@
 " fold this file with [[[ and ]]]
 " vim:foldmethod=marker:foldmarker=[[[,]]]
 
-" fix vim error E474
-" https://stackoverflow.com/q/18321538/14399237
-set encoding=utf-8
-
+" default configs[[[
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
@@ -40,7 +37,8 @@ augroup END
 if has('syntax') && has('eval')
   packadd! matchit
 endif
-
+" ]]]
+" my configs[[[
 " show number
 set number relativenumber
 set numberwidth=1
@@ -64,7 +62,6 @@ set shiftwidth=2    " Indents will have a width of 2
 " set softtabstop=2   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
 
-
 filetype plugin on
 
 " switch buffers without saving
@@ -73,6 +70,48 @@ set hidden
 " search all subdirectory of current directory
 set path+=**
 
+" fix vim error E474
+" https://stackoverflow.com/q/18321538/14399237
+set encoding=utf-8
+
+" true color
+if (has("termguicolors"))
+  set termguicolors
+endif
+if $TERM == "xterm-256color"
+  set t_Co=256
+endif
+
+" tmux color
+set term=xterm-256color
+if &term =~ '256color'
+  " Disable Background Color Erase (BCE) so that color schemes work
+  " properly within 256-color terminals
+  set t_ut=
+endif
+
+" dark background for tty
+if $TERM == 'linux'
+  set background=dark
+else
+  set background=light
+endif
+
+" case insensitive
+set ignorecase smartcase
+
+" vertical and fuzzy wildmenu
+set wildoptions=fuzzy,pum
+
+" auto wrap in vimdiff
+au VimEnter * if &diff | execute 'windo set wrap' | endif
+
+" cursor shape
+" https://stackoverflow.com/a/70135079/14399237
+let &t_SI.="\e[6 q" "SI = INSERT mode, 6 = solid line
+let &t_SR.="\e[4 q" "SR = REPLACE mode, 4 = solid underscore
+let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE), 2 = solid block
+" ]]]
 " Install vim-plug for vim on unix if not found
 if !has('nvim') && has('unix')
   if empty(glob('~/.vim/autoload/plug.vim'))
@@ -80,15 +119,13 @@ if !has('nvim') && has('unix')
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   endif
 endif
-
-" plugins
+" plugins[[[
 call plug#begin()
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
 Plug '907th/vim-auto-save'
-" Plug 'flazz/vim-colorschemes'
 Plug 'morhetz/gruvbox'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'machakann/vim-highlightedyank'
@@ -97,9 +134,6 @@ Plug 'AndrewRadev/tagalong.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-" Plug 'altercation/vim-colors-solarized'
-" Plug 'lifepillar/vim-solarized8'
-" Plug 'endel/vim-github-colorscheme'
 Plug 'junegunn/vim-peekaboo'
 Plug 'simnalamburt/vim-mundo'
 " lightline
@@ -170,12 +204,12 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 call plug#end()
 
-" keybindings
-
-" fzf keybindings
-" nnoremap <silent> <C-f> :Files<CR>
-" nnoremap <silent> <Leader>f :Rg<CR>
-
+" enable italic in gruvbox
+let g:gruvbox_italic=1
+" colorscheme
+colorscheme gruvbox
+" ]]]
+" keybindings[[[
 " clear search highlight 
 nnoremap <esc><esc> :noh<return><esc>
 
@@ -185,47 +219,6 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 " <Leader> to space
 let mapleader = "\<space>"
 
-" true color
-if (has("termguicolors"))
-  set termguicolors
-endif
-if $TERM == "xterm-256color"
-  set t_Co=256
-endif
-
-" tmux color
-set term=xterm-256color
-if &term =~ '256color'
-  " Disable Background Color Erase (BCE) so that color schemes work
-  " properly within 256-color terminals
-  set t_ut=
-endif
-
-" enable italic in gruvbox
-let g:gruvbox_italic=1
-" colorscheme
-colorscheme gruvbox
-" dark background for tty
-if $TERM == 'linux'
-  set background=dark
-else
-  set background=light
-endif
-
-" case insensitive
-set ignorecase smartcase
-
-" vertical and fuzzy wildmenu
-set wildoptions=fuzzy,pum
-
-" auto wrap in vimdiff
-au VimEnter * if &diff | execute 'windo set wrap' | endif
-
-" cursor shape
-" https://stackoverflow.com/a/70135079/14399237
-let &t_SI.="\e[6 q" "SI = INSERT mode, 6 = solid line
-let &t_SR.="\e[4 q" "SR = REPLACE mode, 4 = solid underscore
-let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE), 2 = solid block
-
 " clean vim, used for fast macro replaying
 :command Cv w | wviminfo | !vim --clean -i ~/.viminfo %
+" ]]]
