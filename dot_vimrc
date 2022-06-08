@@ -1,5 +1,9 @@
 " fold this file with [[[ and ]]]
 " vim:foldmethod=marker:foldmarker=[[[,]]]
+
+" fix E474 caused by vim in nix-shell
+"   https://stackoverflow.com/q/18321538/14399237
+set encoding=utf-8
 " default configs[[[1
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
@@ -99,10 +103,6 @@ set hidden
 
 " search all subdirectory of current directory
 set path+=**
-
-" fix vim error E474
-"  https://stackoverflow.com/q/18321538/14399237
-set encoding=utf-8
 
 " vertical and fuzzy wildmenu
 set wildoptions=fuzzy,pum
