@@ -1,7 +1,7 @@
 " fold this file with [[[ and ]]]
 " vim:foldmethod=marker:foldmarker=[[[,]]]
 
-" default configs[[[
+" default configs[[[1
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
 
@@ -38,7 +38,7 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 " ]]]
-" my configs[[[
+" my configs[[[1
 " show number
 set number relativenumber
 set numberwidth=1
@@ -112,7 +112,7 @@ let &t_SI.="\e[6 q" "SI = INSERT mode, 6 = solid line
 let &t_SR.="\e[4 q" "SR = REPLACE mode, 4 = solid underscore
 let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE), 2 = solid block
 " ]]]
-" plugins[[[
+" plugins[[[1
 call plug#begin()
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -202,7 +202,7 @@ let g:gruvbox_italic=1
 " colorscheme
 colorscheme gruvbox
 " ]]]
-" keybindings[[[
+" keybindings[[[1
 " clear search highlight 
 nnoremap <esc><esc> :noh<return><esc>
 
