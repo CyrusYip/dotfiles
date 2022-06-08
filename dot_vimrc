@@ -124,6 +124,8 @@ let mapleader = "\<space>"
 " clean vim, used for fast macro replaying
 :command Cv w | wviminfo | !vim --clean -i ~/.viminfo %
 " ]]]
+" only load plugins after installing vim-plug
+if !empty(glob('~/.vim/autoload/plug.vim'))
 " plugins[[[1
 call plug#begin()
 Plug '907th/vim-auto-save'
@@ -224,3 +226,4 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " ]]]
 " ]]]
+endif
