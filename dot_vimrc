@@ -1,10 +1,9 @@
 " fold this file with [[[ and ]]]
 " vim:foldmethod=marker:foldmarker=[[[,]]]
-
 " default configs[[[1
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
-
+" backup, undo [[[2
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
@@ -14,12 +13,14 @@ else
     set undofile	" keep an undo file (undo changes after closing)
   endif
 endif
-
+" ]]]
+" hlsearch[[[2
 if &t_Co > 2 || has("gui_running")
   " Switch on highlighting the last used search pattern.
   set hlsearch
 endif
-
+" ]]]
+" autocmd group[[[2
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
@@ -27,7 +28,8 @@ augroup vimrcEx
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 augroup END
-
+" ]]]
+" matchit[[[2
 " Add optional packages.
 "
 " The matchit plugin makes the % command work better, but it is not backwards
@@ -38,42 +40,34 @@ if has('syntax') && has('eval')
   packadd! matchit
 endif
 " ]]]
+" ]]]
 " my configs[[[1
-" show number
+" number, clipboard[[[2
 set number relativenumber
 set numberwidth=1
-
-" enable clipboard
 set clipboard^=unnamed,unnamedplus
-
-" show whitespaces
-set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,space:·
-":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-set list
-
+"]]]
+" indent, tab, case, whitespaces [[[2
 " indent
 set smartindent
 set autoindent
 
-" tab to space
+" tab
 " set smarttab
 set tabstop=2       " The width of a TAB is set to 2.
 set shiftwidth=2    " Indents will have a width of 2
 " set softtabstop=2   " Sets the number of columns for a TAB
 set expandtab       " Expand TABs to spaces
 
-filetype plugin on
+" case insensitive
+set ignorecase smartcase
 
-" switch buffers without saving
-set hidden
-
-" search all subdirectory of current directory
-set path+=**
-
-" fix vim error E474
-" https://stackoverflow.com/q/18321538/14399237
-set encoding=utf-8
-
+" whitespaces
+set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,space:·
+":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set list
+"]]]
+" true color, background[[[2
 " true color
 if (has("termguicolors"))
   set termguicolors
@@ -96,50 +90,86 @@ if $TERM == 'linux'
 else
   set background=light
 endif
+"]]]
+" cursor shape[[[2
+" https://stackoverflow.com/a/70135079/14399237
+let &t_SI.="\e[6 q" "SI = INSERT mode, 6 = solid line
+let &t_SR.="\e[4 q" "SR = REPLACE mode, 4 = solid underscore
+let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE), 2 = solid block
+"]]]
+" other[[[2
+" filetype plugin
+filetype plugin indent on
 
-" case insensitive
-set ignorecase smartcase
+" switch buffers without saving
+set hidden
+
+" search all subdirectory of current directory
+set path+=**
+
+" fix vim error E474
+"  https://stackoverflow.com/q/18321538/14399237
+set encoding=utf-8
 
 " vertical and fuzzy wildmenu
 set wildoptions=fuzzy,pum
 
 " auto wrap in vimdiff
 au VimEnter * if &diff | execute 'windo set wrap' | endif
+" ]]]
+" ]]]
+" keybindings[[[1
+" clear search highlight 
+nnoremap <esc><esc> :noh<return><esc>
 
-" cursor shape
-" https://stackoverflow.com/a/70135079/14399237
-let &t_SI.="\e[6 q" "SI = INSERT mode, 6 = solid line
-let &t_SR.="\e[4 q" "SR = REPLACE mode, 4 = solid underscore
-let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE), 2 = solid block
+" replace grep with rg
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow
+
+" <Leader> to space
+let mapleader = "\<space>"
+
+" clean vim, used for fast macro replaying
+:command Cv w | wviminfo | !vim --clean -i ~/.viminfo %
 " ]]]
 " plugins[[[1
 call plug#begin()
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'tpope/vim-commentary'
-Plug 'easymotion/vim-easymotion'
 Plug '907th/vim-auto-save'
-Plug 'morhetz/gruvbox'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
-Plug 'machakann/vim-highlightedyank'
-Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/tagalong.vim'
-Plug 'junegunn/seoul256.vim'
-Plug 'luochen1990/rainbow'
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-Plug 'junegunn/vim-peekaboo'
-Plug 'simnalamburt/vim-mundo'
-" lightline
+Plug 'easymotion/vim-easymotion'
+Plug 'godlygeek/tabular' " for vim-markdown
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/vim-peekaboo'
+Plug 'luochen1990/rainbow'
+Plug 'machakann/vim-highlightedyank'
+Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/vim-markdown', { 'for': 'markdown' }
+Plug 'simnalamburt/vim-mundo'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-surround'
+call plug#end()
+" ]]]
+" plugin configs[[[1
+" gruvbox, rainbow[[[2
+let g:gruvbox_italic=1
+colorscheme gruvbox
+let g:rainbow_active = 1
+"]]]
+" lightline[[[2
 set laststatus=2
 set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ }
-
-" Markdown
-Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
-
+" ]]]
+" goyo callbacks[[[2
 function! s:goyo_enter()
   set number relativenumber
   " cursor location
@@ -149,27 +179,22 @@ function! s:goyo_enter()
   set listchars=tab:>␣,trail:~,extends:>,precedes:<,space:·
   " highlight! NonText guifg=#6c767f guibg=NONE gui=NONE
 endfunction
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
 
 function! s:goyo_leave()
   set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,space:·
 endfunction
 
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown', { 'for': 'markdown' }
+" ]]]
+" vim-markdown[[[2
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_conceal_code_blocks = 0
 autocmd FileType markdown setlocal conceallevel=2 " syntax concealing
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-" auto detect indent
-Plug 'tpope/vim-sleuth'
-
-" coc auto complete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" ]]]
+" coc.nvim keybindings[[[2
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
@@ -195,23 +220,5 @@ endif
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-call plug#end()
-
-" enable italic in gruvbox
-let g:gruvbox_italic=1
-" colorscheme
-colorscheme gruvbox
 " ]]]
-" keybindings[[[1
-" clear search highlight 
-nnoremap <esc><esc> :noh<return><esc>
-
-" replace grep with rg
-set grepprg=rg\ --vimgrep\ --smart-case\ --follow
-
-" <Leader> to space
-let mapleader = "\<space>"
-
-" clean vim, used for fast macro replaying
-:command Cv w | wviminfo | !vim --clean -i ~/.viminfo %
 " ]]]
