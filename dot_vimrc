@@ -130,6 +130,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
 call plug#begin()
 Plug '907th/vim-auto-save'
 Plug 'AndrewRadev/tagalong.vim'
+Plug 'alker0/chezmoi.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular' " for vim-markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
