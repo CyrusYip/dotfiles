@@ -147,6 +147,7 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+" Plug 'dstein64/vim-startuptime'
 call plug#end()
 " ]]]
 " plugin configs[[[1
