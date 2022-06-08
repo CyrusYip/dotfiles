@@ -83,13 +83,6 @@ if &term =~ '256color'
   " properly within 256-color terminals
   set t_ut=
 endif
-
-" dark background for tty
-if $TERM == 'linux'
-  set background=dark
-else
-  set background=light
-endif
 "]]]
 " cursor shape[[[2
 " https://stackoverflow.com/a/70135079/14399237
@@ -158,8 +151,17 @@ call plug#end()
 " ]]]
 " plugin configs[[[1
 " gruvbox, rainbow[[[2
+" gruvbox
 let g:gruvbox_italic=1
+set background=light
 colorscheme gruvbox
+
+" dark background for tty
+if $TERM == 'linux'
+  set background=dark
+endif
+
+" rainbow
 let g:rainbow_active = 1
 "]]]
 " lightline[[[2
