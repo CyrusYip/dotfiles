@@ -1,6 +1,9 @@
 " fold this file with [[[ and ]]]
 " vim:foldmethod=marker:foldmarker=[[[,]]]
-
+" dependencies[[[1
+" nodejs:  coc.nvim, markdown-preview.nvim
+" yarn:    markdown-preview.nvim
+" ]]]
 " fix E474 caused by vim in nix-shell
 "   https://stackoverflow.com/q/18321538/14399237
 set encoding=utf-8
@@ -128,12 +131,12 @@ let mapleader = "\<space>"
 if !empty(glob('~/.vim/autoload/plug.vim'))
 " plugins[[[1
 call plug#begin()
+" no dependencies[[[2
 Plug '907th/vim-auto-save'
 Plug 'AndrewRadev/tagalong.vim'
 Plug 'alker0/chezmoi.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular' " for vim-markdown
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -142,13 +145,21 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'luochen1990/rainbow'
 Plug 'machakann/vim-highlightedyank'
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/vim-markdown'
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
+" ]]]
+" need dependencies[[[2
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" ]]]
+" optional dependencies[[[2
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+" ]]]
+" dubug[[[2
 " Plug 'dstein64/vim-startuptime'
+" ]]]2
 call plug#end()
 " ]]]
 " plugin configs[[[1
