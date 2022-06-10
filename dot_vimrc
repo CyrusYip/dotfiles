@@ -125,7 +125,11 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 let mapleader = "\<space>"
 
 " clean vim, used for fast macro replaying
-:command Cv w | wviminfo | !vim --clean -i ~/.viminfo %
+command Cv w | wviminfo | !vim --clean -i ~/.viminfo %
+
+" UP: upgrade all plugins and managers
+command! UP PlugUpdate | PlugUpgrade | JetpackSync
+
 " ]]]
 " only load plugins after installing vim-jetpack
 if !empty(glob('~/.vim/autoload/jetpack.vim'))
