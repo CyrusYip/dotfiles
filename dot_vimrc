@@ -127,43 +127,19 @@ let mapleader = "\<space>"
 " clean vim, used for fast macro replaying
 :command Cv w | wviminfo | !vim --clean -i ~/.viminfo %
 " ]]]
-" only load plugins after installing vim-plug
-if !empty(glob('~/.vim/autoload/plug.vim'))
+" only load plugins after installing vim-jetpack
+if !empty(glob('~/.vim/autoload/jetpack.vim'))
 " plugins[[[1
-call plug#begin()
-" no dependencies[[[2
-Plug '907th/vim-auto-save'
-Plug 'AndrewRadev/tagalong.vim'
-Plug 'alker0/chezmoi.vim'
-Plug 'easymotion/vim-easymotion'
-Plug 'godlygeek/tabular' " for vim-markdown
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/vim-peekaboo'
-Plug 'luochen1990/rainbow'
-Plug 'machakann/vim-highlightedyank'
-Plug 'morhetz/gruvbox'
-Plug 'preservim/vim-markdown'
-Plug 'simnalamburt/vim-mundo'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sleuth'
-Plug 'tpope/vim-surround'
+  call jetpack#begin()
+  Jetpack 'alker0/chezmoi.vim'
+  Jetpack 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-jetpack']}
+  Jetpack 'itchyny/lightline.vim'
+  Jetpack 'morhetz/gruvbox'
+  Jetpack 'preservim/vim-markdown', { 'for': 'markdown' }
+  call jetpack#end()
 " ]]]
-" need dependencies[[[2
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" ]]]
-" optional dependencies[[[2
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-" ]]]
-" dubug[[[2
-" Plug 'dstein64/vim-startuptime'
-" ]]]2
-call plug#end()
-" ]]]
-" plugin configs[[[1
-" gruvbox, rainbow[[[2
+" configs[[[1
+" gruvbox[[[2
 " gruvbox
 let g:gruvbox_italic=1
 set background=light
@@ -174,8 +150,6 @@ if $TERM == 'linux'
   set background=dark
 endif
 
-" rainbow
-let g:rainbow_active = 1
 "]]]
 " lightline[[[2
 set laststatus=2
@@ -184,24 +158,6 @@ let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ }
 " ]]]
-" goyo callbacks[[[2
-function! s:goyo_enter()
-  set number relativenumber
-  " cursor location
-  :file
-  nnoremap <esc><esc> <c-g>
-  " list without eol
-  set listchars=tab:>␣,trail:~,extends:>,precedes:<,space:·
-  " highlight! NonText guifg=#6c767f guibg=NONE gui=NONE
-endfunction
-
-function! s:goyo_leave()
-  set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,space:·
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-" ]]]
 " vim-markdown[[[2
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_frontmatter = 1
@@ -209,32 +165,92 @@ let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_conceal_code_blocks = 0
 autocmd FileType markdown setlocal conceallevel=2 " syntax concealing
 " ]]]
-" coc.nvim keybindings[[[2
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
+" ]]]
 endif
 
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-" ]]]
-" ]]]
+" only load plugins after installing vim-plug
+if !empty(glob('~/.vim/autoload/plug.vim'))
+  " load after start
+  function DelayLoading(id)
+  " delayed plugins[[[1
+  call plug#begin()
+  " no dependencies[[[2
+  Plug '907th/vim-auto-save'
+  Plug 'AndrewRadev/tagalong.vim'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'godlygeek/tabular' " for vim-markdown
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/vim-peekaboo'
+  Plug 'luochen1990/rainbow'
+  Plug 'machakann/vim-highlightedyank'
+  Plug 'simnalamburt/vim-mundo'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-sleuth'
+  Plug 'tpope/vim-surround'
+  " ]]]
+  " need dependencies[[[2
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " ]]]
+  " dubug[[[2
+  " Plug 'dstein64/vim-startuptime'
+  " ]]]2
+  call plug#end()
+  " ]]]
+  " delayed plugin configs[[[1
+  " rainbow
+  let g:rainbow_active = 1
+  " goyo callbacks[[[2
+  function! s:goyo_enter()
+    set number relativenumber
+    " cursor location
+    :file
+    nnoremap <esc><esc> <c-g>
+    " list without eol
+    set listchars=tab:>␣,trail:~,extends:>,precedes:<,space:·
+    " highlight! NonText guifg=#6c767f guibg=NONE gui=NONE
+  endfunction
+
+  function! s:goyo_leave()
+    set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,space:·
+  endfunction
+
+  autocmd! User GoyoEnter nested call <SID>goyo_enter()
+  autocmd! User GoyoLeave nested call <SID>goyo_leave()
+  " ]]]
+  " coc.nvim keybindings[[[2
+  " Use tab for trigger completion with characters ahead and navigate.
+  " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+  " other plugin before putting this into your config.
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  " Use <c-space> to trigger completion.
+  if has('nvim')
+    inoremap <silent><expr> <c-space> coc#refresh()
+  else
+    inoremap <silent><expr> <c-@> coc#refresh()
+  endif
+
+  " Make <CR> auto-select the first completion item and notify coc.nvim to
+  " format on enter, <cr> could be remapped by other vim plugin
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                                \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  " ]]]
+  " ]]]
+  endfunction
+  if has('timers')
+    call timer_start(500, 'DelayLoading')
+  else
+    call DelayLoading('')
+  endif
 endif
