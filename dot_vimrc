@@ -138,28 +138,32 @@ if !empty(glob('~/.vim/autoload/jetpack.vim'))
   Jetpack 'alker0/chezmoi.vim'
   Jetpack 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-jetpack']}
   Jetpack 'itchyny/lightline.vim'
-  Jetpack 'morhetz/gruvbox'
+  " Jetpack 'morhetz/gruvbox'
   Jetpack 'preservim/vim-markdown', { 'for': 'markdown' }
+  Jetpack 'sainnhe/everforest'
   call jetpack#end()
 " ]]]
 " configs[[[1
-" gruvbox[[[2
-" gruvbox
-let g:gruvbox_italic=1
-set background=light
-colorscheme gruvbox
-
-" dark background for tty
+" dark background for tty, light for terminal[[[2
 if $TERM == 'linux'
   set background=dark
+else
+  set background=light
 endif
-
-"]]]
+" ]]]
+" everforest[[[2
+let g:everforest_better_performance = 1
+let g:everforest_background = 'soft'
+let g:everforest_enable_italic = 1
+let g:everforest_transparent_background = 2 " transparent status line
+let g:everforest_ui_contrast = 'high'
+colorscheme everforest
+" ]]]
 " lightline[[[2
 set laststatus=2
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'everforest',
       \ }
 " ]]]
 " vim-markdown[[[2
@@ -168,6 +172,11 @@ let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_strikethrough = 1
 let g:vim_markdown_conceal_code_blocks = 0
 autocmd FileType markdown setlocal conceallevel=2 " syntax concealing
+" ]]]
+" gruvbox[[[2
+" let g:gruvbox_italic=1
+" set background=light
+" colorscheme gruvbox
 " ]]]
 " ]]]
 endif
