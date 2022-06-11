@@ -74,7 +74,7 @@ set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,space:·
 ":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set list
 "]]]
-" true color, background[[[2
+" true color, background, mouse[[[2
 " true color
 if (has("termguicolors"))
   set termguicolors
@@ -90,6 +90,9 @@ if &term =~ '256color'
   " properly within 256-color terminals
   set t_ut=
 endif
+
+" mouse in tmux
+set ttymouse=xterm2
 "]]]
 " cursor shape[[[2
 " https://stackoverflow.com/a/70135079/14399237
