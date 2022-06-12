@@ -209,7 +209,9 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   Plug 'tpope/vim-surround'
   " ]]]
   " need dependencies[[[2
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  if executable('node')
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  endif
   " ]]]
   " dubug[[[2
   " Plug 'dstein64/vim-startuptime'
