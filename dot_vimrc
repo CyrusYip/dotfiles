@@ -50,9 +50,10 @@ endif
 " ]]]
 " my configs[[[1
 " number, clipboard[[[2
-set number relativenumber
-set numberwidth=1
 set clipboard^=unnamed,unnamedplus
+set number relativenumber numberwidth=1
+autocmd FileType help setlocal number relativenumber numberwidth=1
+let g:netrw_bufsettings = 'number relativenumber numberwidth=1 noma nomod ro nobl'
 "]]]
 " indent, tab, case, whitespaces [[[2
 " indent
