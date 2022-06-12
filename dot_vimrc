@@ -144,8 +144,6 @@ if !empty(glob('~/.vim/autoload/jetpack.vim'))
   Jetpack 'itchyny/lightline.vim'
   Jetpack 'preservim/vim-markdown', { 'for': 'markdown' }
   Jetpack 'sainnhe/everforest'
-  " Jetpack 'dstein64/vim-startuptime'
-  " Jetpack 'tweekmonster/startuptime.vim'
   call jetpack#end()
 " ]]]
 " configs[[[1
@@ -213,6 +211,10 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   if executable('node')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
   endif
+  " ]]]
+  " profile[[[2
+  " Plug 'dstein64/vim-startuptime'
+  " Plug 'tweekmonster/startuptime.vim'
   " ]]]
   call plug#end()
   " ]]]
