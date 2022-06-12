@@ -118,7 +118,7 @@ set wildoptions=fuzzy,pum
 au VimEnter * if &diff | execute 'windo set wrap' | endif
 " ]]]
 " ]]]
-" keybindings[[[1
+" keybindings, commands[[[1
 " clear search highlight 
 nnoremap <esc><esc> :noh<return><esc>
 
@@ -132,7 +132,7 @@ let mapleader = "\<space>"
 command Cv w | wviminfo | !vim -c 'set nu rnu nuw=1' --clean -i ~/.viminfo %
 
 " UP: upgrade all plugins and managers
-command! UP PlugUpdate | PlugUpgrade | JetpackSync
+command! UP PlugUpdate | PlugUpgrade | PlugClean | JetpackSync
 
 " ]]]
 " only load plugins after installing vim-jetpack
@@ -142,9 +142,10 @@ if !empty(glob('~/.vim/autoload/jetpack.vim'))
   Jetpack 'alker0/chezmoi.vim'
   Jetpack 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-jetpack']}
   Jetpack 'itchyny/lightline.vim'
-  " Jetpack 'morhetz/gruvbox'
   Jetpack 'preservim/vim-markdown', { 'for': 'markdown' }
   Jetpack 'sainnhe/everforest'
+  " Jetpack 'dstein64/vim-startuptime'
+  " Jetpack 'tweekmonster/startuptime.vim'
   call jetpack#end()
 " ]]]
 " configs[[[1
@@ -213,9 +214,6 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
   endif
   " ]]]
-  " dubug[[[2
-  " Plug 'dstein64/vim-startuptime'
-  " ]]]2
   call plug#end()
   " ]]]
   " delayed plugin configs[[[1
