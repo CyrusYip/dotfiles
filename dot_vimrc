@@ -219,8 +219,13 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   call plug#end()
   " ]]]
   " delayed plugin configs[[[1
-  " rainbow
+  " explicitly initialize plugins[[[2
+  call peekaboo#on()
+  execute 'Sleuth'
+  " ]]]
+  " rainbow[[[2
   let g:rainbow_active = 1
+  " ]]]
   " goyo callbacks[[[2
   function! s:goyo_enter()
     set number relativenumber
