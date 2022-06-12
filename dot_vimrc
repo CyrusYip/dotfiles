@@ -132,7 +132,7 @@ let mapleader = "\<space>"
 command Cv w | wviminfo | !vim -c 'set nu rnu nuw=1' --clean -i ~/.viminfo %
 
 " UP: upgrade all plugins and managers
-command! UP PlugUpdate | PlugUpgrade | PlugClean | JetpackSync
+command! UP PlugClean | PlugUpdate | PlugUpgrade | JetpackSync
 
 " ]]]
 " only load plugins after installing vim-jetpack
