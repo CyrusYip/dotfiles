@@ -4,7 +4,11 @@ Cyrus Yip's dotfiles managed by [chezmoi](https://github.com/twpayne/chezmoi).
 
 It's recommended to read the dotfiles that interest you and copy what you need, because my dotfiles may not meet your needs. If you want to try these dotfiles, install [chezmoi](https://www.chezmoi.io/install/) and [git](https://git-scm.com/downloads), and choose one of the installation methods. You may get different dotfiles on different machines because chezmoi uses [templates](https://www.chezmoi.io/user-guide/templating/) to change the contents of a file depending on the environment(operating system, hostname, etc).
 
-## method 1: install all dotfiles
+## Screenshots
+
+Please see <https://github.com/CyrusYip/dotfiles/issues/1>.
+
+## Method 1: install all dotfiles
 
 With this method, all dotfiles will be installed in your home directory, and existing dotfiles will be overwritten.
 
@@ -17,7 +21,7 @@ chezmoi apply --dry-run --verbose
 chezmoi apply --verbose
 ```
 
-## method 2: compare
+## Method 2: merge
 
 With this method, you manually merge existing dotfiles and my dotfiles with `vimdiff`. Vim needs to be installed in this method. Don't use this method if you are not familiar with `vimdiff`.
 
