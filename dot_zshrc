@@ -73,7 +73,11 @@ zinit wait lucid light-mode for \
     zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions \
-    zdharma-continuum/history-search-multi-word
+    zdharma-continuum/history-search-multi-word \
+
+if (( $+commands[fzf] )); then
+  zinit wait lucid light-mode for Aloxaf/fzf-tab
+fi
 # ]]]
 fi
 # set fold and filetype in vim
