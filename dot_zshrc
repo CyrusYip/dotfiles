@@ -34,11 +34,6 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 # ]]]
-# source plugins[[[1
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-# ]]]
 # powerlevel10k[[[1
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -68,6 +63,12 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 
 ### End of Zinit's installer chunk
+# ]]]
+# plugins[[[1
+zinit light-mode for \
+  zsh-users/zsh-autosuggestions \
+  zsh-users/zsh-syntax-highlighting \
+  romkatv/powerlevel10k
 # ]]]
 fi
 # set fold and filetype in vim
