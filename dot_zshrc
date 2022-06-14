@@ -98,14 +98,21 @@ zinit wait lucid light-mode for \
     zsh-users/zsh-completions \
     zdharma-continuum/history-search-multi-word \
     kutsan/zsh-system-clipboard \
+    OMZL::directories.zsh \
+    OMZP::git
 
 if (( $+commands[fzf] )); then
   zinit wait lucid light-mode for Aloxaf/fzf-tab
 fi
 # ]]]
+# run delayed_commands
 zsh-defer delayed_commands
 else
   delayed_commands
+fi
+# use exa
+if (( $+commands[exa] )); then
+  alias ls='exa'
 fi
 # ]]]
 # set fold and filetype in vim
