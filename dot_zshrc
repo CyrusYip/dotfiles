@@ -65,10 +65,15 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 # ]]]
 # plugins[[[1
-zinit light-mode for \
-  zsh-users/zsh-autosuggestions \
-  zsh-users/zsh-syntax-highlighting \
-  romkatv/powerlevel10k
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+    zsh-users/zsh-completions \
+    zdharma-continuum/history-search-multi-word
 # ]]]
 fi
 # set fold and filetype in vim
