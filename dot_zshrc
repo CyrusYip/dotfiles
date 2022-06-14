@@ -38,9 +38,9 @@ bindkey "^[[1;5D" backward-word
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # ]]]
-# ignore plugins if zinit not installed
+# load plugins if zinit installed[[[1
 if [[ -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-# zinit initialization[[[1
+# zinit initialization[[[2
 ### Added by Zinit's installer
 # if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
 #     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -64,7 +64,7 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 # ]]]
-# plugins[[[1
+# plugins[[[2
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light romkatv/zsh-defer
 
@@ -83,5 +83,6 @@ if (( $+commands[fzf] )); then
 fi
 # ]]]
 fi
+# ]]]
 # set fold and filetype in vim
 # vim: foldmethod=marker foldmarker=[[[,]]] filetype=zsh
