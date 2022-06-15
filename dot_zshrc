@@ -43,6 +43,10 @@ delayed_commands() {
   # PATH
   export PATH=~/bin:$PATH
   if [ -d ~/.nix-profile/bin ]; then export PATH=~/.nix-profile/bin:$PATH; fi
+  # use exa
+  if (( $+commands[exa] )); then
+    alias ls='exa'
+  fi
   # zoxide
   if (( $+commands[zoxide] )); then
     init_z() {
@@ -133,10 +137,6 @@ fi
 zsh-defer delayed_commands
 else
   delayed_commands
-fi
-# use exa
-if (( $+commands[exa] )); then
-  alias ls='exa'
 fi
 # ]]]
 # set fold and filetype in vim
