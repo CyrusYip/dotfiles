@@ -1,183 +1,145 @@
+# powerlevel10k instant prompt[[[1
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+# ]]]
+# history[[[1
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+# ]]]
+# auto complete, prompt[[[1
+autoload -Uz compinit promptinit
+compinit
+promptinit
+prompt walters
+# lowercase matches uppercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
+# ]]]
+# keybindings[[[1
+# vi keybindings in menu
+setopt autocd
+bindkey -v
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-
-# Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose vi-mode)
-
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
-if [[ ! -d $ZSH_CACHE_DIR ]]; then
-  mkdir $ZSH_CACHE_DIR
-fi
-
-source $ZSH/oh-my-zsh.sh
-
-
-fpath=(/usr/share/zsh/site-functions/ $fpath)
-autoload -U compinit
-compinit -i
-
-# export PATH="$PATH:$(yarn global bin)"
-export PATH=~/bin:$PATH
-
-
-
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+# control arrow to jump words
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+# ]]]
+# powerlevel10k[[[1
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# enable miniconda
-source /opt/miniconda/etc/profile.d/conda.sh
-# [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
-
-# pip zsh completion start
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] 2>/dev/null ))
+# ]]]
+# delayed commands[[[1
+delayed_commands() {
+  # PATH
+  export PATH=~/bin:$PATH
+  if [ -d ~/.nix-profile/bin ]; then export PATH=~/.nix-profile/bin:$PATH; fi
+  # use exa
+  if (( $+commands[exa] )); then
+    alias ls='exa'
+  fi
+  # zoxide
+  if (( $+commands[zoxide] )); then
+    init_z() {
+      eval "$(zoxide init zsh)"
+    }
+  fi
+  # thefuck
+  if (( $+commands[thefuck] )); then
+    init_fuck(){
+      eval $(thefuck --alias)
+    }
+  fi
+  # nvm
+  init_nvm() {
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  }
+  # miniconda
+  init_conda() {
+    [ -f /opt/miniconda/etc/profile.d/conda.sh ] && source /opt/miniconda/etc/profile.d/conda.sh
+  }
+  # lazyload function
+  lazyload() {
+    for i in "$@"
+    do
+      eval "
+        $i() {
+            unfunction $i
+            eval init_$i
+            $i \$@
+        }
+      "
+    done
+  }
+  lazyload z fuck nvm conda
 }
-compctl -K _pip_completion pip
-# pip zsh completion end
+# ]]]
+# load plugins if zinit installed[[[1
+if [[ -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+# zinit initialization[[[2
+### Added by Zinit's installer
+# if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+#     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+#     command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+#     command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+#         print -P "%F{33} %F{34}Installation successful.%f%b" || \
+#         print -P "%F{160} The clone has failed.%f%b"
+# fi
 
-source /usr/share/nvm/init-nvm.sh
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-# thefuck
-if [ -x "$(command -v thefuck)" ]; then
-  eval $(thefuck --alias)
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
+# ]]]
+# plugins[[[2
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light romkatv/zsh-defer
+
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" \
+    zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+    zsh-users/zsh-completions \
+    kutsan/zsh-system-clipboard \
+    OMZL::directories.zsh \
+    OMZP::git
+    # zdharma-continuum/history-search-multi-word \
+
+if (( $+commands[fzf] )); then
+  zinit wait lucid light-mode for \
+    Aloxaf/fzf-tab \
+    joshskidmore/zsh-fzf-history-search
+  # disable sort
+  zstyle ':completion:*' sort false
 fi
-
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-source ~/.config/broot/launcher/bash/br
-
-# let fzf use rg
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files'
-  export FZF_DEFAULT_OPTS='-m'
+# ]]]
+# run delayed_commands
+zsh-defer delayed_commands
+else
+  delayed_commands
 fi
-# export FZF_DEFAULT_COMMAND='rg'
-
-# default editor vim
-export EDITOR='vim'
-
-# bash completion
-# autoload -U +X compinit && compinit
-# autoload -U +X bashcompinit && bashcompinit
-# autoload bashcompinit
-# bashcompinit
-# source /usr/share/bash-completion/completions/fastboot
-# source $HOME/.zsh-bash-completions-fallback/zsh-bash-completions-fallback.plugin.zsh
-
-# zoxide
-eval "$(zoxide init zsh)"
-
-# nix path
-if [ -d ~/.nix-profile/bin ]; then export PATH=~/.nix-profile/bin:$PATH; fi
-
+# ]]]
+# set fold and filetype in vim
+# vim: foldmethod=marker foldmarker=[[[,]]] filetype=zsh
