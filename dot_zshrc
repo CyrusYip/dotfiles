@@ -96,13 +96,15 @@ zinit wait lucid light-mode for \
     zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
     zsh-users/zsh-completions \
-    zdharma-continuum/history-search-multi-word \
     kutsan/zsh-system-clipboard \
     OMZL::directories.zsh \
     OMZP::git
+    # zdharma-continuum/history-search-multi-word \
 
 if (( $+commands[fzf] )); then
-  zinit wait lucid light-mode for Aloxaf/fzf-tab
+  zinit wait lucid light-mode for \
+    Aloxaf/fzf-tab \
+    joshskidmore/zsh-fzf-history-search
 fi
 # ]]]
 # run delayed_commands
