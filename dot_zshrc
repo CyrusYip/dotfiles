@@ -45,34 +45,40 @@ delayed_commands() {
   if [ -d ~/.nix-profile/bin ]; then export PATH=~/.nix-profile/bin:$PATH; fi
   # zoxide
   if (( $+commands[zoxide] )); then
-    z() {
-      unfunction z
+    init_z() {
       eval "$(zoxide init zsh)"
-      z "$@"
     }
   fi
   # thefuck
   if (( $+commands[thefuck] )); then
-    fuck() {
-      unfunction fuck
+    init_fuck(){
       eval $(thefuck --alias)
-      fuck "$@"
     }
   fi
   # nvm
-  nvm() {
-    unfunction nvm
+  init_nvm() {
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    nvm "$@"
   }
   # miniconda
-  conda() {
-    unfunction conda
+  init_conda() {
     [ -f /opt/miniconda/etc/profile.d/conda.sh ] && source /opt/miniconda/etc/profile.d/conda.sh
-    conda "$@"
   }
+  # lazyload function
+  lazyload() {
+    for i in "$@"
+    do
+      eval "
+        $i() {
+            unfunction $i
+            eval init_$i
+            $i \$@
+        }
+      "
+    done
+  }
+  lazyload z fuck nvm conda
 }
 # ]]]
 # load plugins if zinit installed[[[1
