@@ -128,7 +128,7 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 let mapleader = "\<space>"
 
 " Cv: clean vim, used for fast macro replaying
-command Cv w | wviminfo | !vim -c 'set nu rnu nuw=1' --clean -i ~/.viminfo %
+command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
 
 " UP: upgrade all plugins and managers
 command! UP PlugClean | PlugUpdate | PlugUpgrade | JetpackSync
