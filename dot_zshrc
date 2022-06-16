@@ -11,11 +11,12 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 # ]]]
-# auto complete, prompt[[[1
+# auto complete, prompt, editor[[[1
 autoload -Uz compinit promptinit
 compinit
 promptinit
 prompt walters
+export EDITOR='vim'
 # lowercase matches uppercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
