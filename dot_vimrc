@@ -198,7 +198,9 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/vim-peekaboo'
-  Plug 'lilydjwg/fcitx.vim'
+  if executable('fcitx5')
+    Plug 'lilydjwg/fcitx.vim'
+  endif
   Plug 'luochen1990/rainbow'
   Plug 'machakann/vim-highlightedyank'
   Plug 'simnalamburt/vim-mundo'
