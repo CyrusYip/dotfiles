@@ -1,0 +1,40 @@
+# shell, basic settings[[[1
+# interpreter for shell commands
+set shell sh
+set shellopts '-eu'
+set ifs "\n"
+# basic settings
+set relativenumber
+set drawbox
+set scrolloff 10
+set hidden
+# ]]]
+# command[[[1
+# custom 'rename' command
+cmd rename2 %[ -e $1 ] && printf "file exists" || mv $f $1
+# print selected
+cmd ps !echo $fx | tr " " "\n"
+# zoxide
+cmd z %{{
+    result="$(zoxide query --exclude "${PWD}" -- "$1")"
+    lf -remote "send ${id} cd '${result}'"
+}}
+cmd zi ${{
+    result="$(zoxide query -i -- "$1")"
+    lf -remote "send ${id} cd '${result}'"
+}}
+# trash-cli
+cmd trash %trash-put $fx
+# fzf with vim
+cmd fzf $vim $(fzf)
+# ]]]
+# map[[[1
+# use enter for shell commands
+map <enter> shell
+# execute current file (must be executable)
+map x $$f
+map X !$f
+# custom rename
+map r push :rename2<space>
+# ]]]
+# vim: foldmethod=marker foldmarker=[[[,]]]
