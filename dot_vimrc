@@ -1,12 +1,8 @@
-" fold this file with [[[ and ]]]
-" vim:foldmethod=marker:foldmarker=[[[,]]]
+" set encoding=utf-8
 " dependencies[[[1
 " nodejs:  coc.nvim, markdown-preview.nvim
 " yarn:    markdown-preview.nvim
 " ]]]
-" fix E474 caused by vim in nix-shell
-"   https://stackoverflow.com/q/18321538/14399237
-" set encoding=utf-8
 " default configs[[[1
 " Get the defaults that most users want.
 source $VIMRUNTIME/defaults.vim
@@ -279,3 +275,5 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     call DelayLoading('')
   endif
 endif
+" fold this file with [[[ and ]]]
+" vim:foldmethod=marker:foldmarker=[[[,]]]
