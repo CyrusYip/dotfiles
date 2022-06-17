@@ -135,8 +135,9 @@ command! UP PlugClean | PlugUpdate | PlugUpgrade | JetpackSync
 
 " ]]]
 " only load plugins after installing vim-jetpack
-if !empty(glob('~/.vim/autoload/jetpack.vim'))
+if !empty(glob('~/.vim/plugin/jetpack.vim'))
 " plugins[[[1
+  runtime */jetpack.vim
   call jetpack#begin()
   Jetpack 'alker0/chezmoi.vim'
   Jetpack 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-jetpack']}
