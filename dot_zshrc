@@ -150,8 +150,8 @@ if (( $+commands[fzf] )); then
   zinit wait lucid light-mode for \
     Aloxaf/fzf-tab \
     joshskidmore/zsh-fzf-history-search
-  # disable sort
-  zstyle ':completion:*' sort false
+  # disable sort in git show
+  zstyle ':completion:complete:git-show:argument-rest' sort false
 fi
 # ]]]
 # run delayed_commands
