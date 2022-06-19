@@ -27,6 +27,14 @@ cmd zi ${{
 cmd trash %trash-put $fx
 # fzf with vim
 cmd fzf $vim $(fzf)
+# open text files with $EDITOR
+cmd open ${{
+    test -L $f && f=$(readlink -f $f)
+    case $(file --mime-type $f -b) in
+        text/*) $EDITOR $fx;;
+        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
 # ]]]
 # map[[[1
 # use enter for shell commands
