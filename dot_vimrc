@@ -127,6 +127,9 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow
 " <Leader> to space
 let mapleader = "\<space>"
 
+" lf
+nnoremap <leader>f :LF<CR>
+
 " Cv: clean vim, used for fast macro replaying
 command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
 
