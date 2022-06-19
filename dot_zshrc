@@ -152,6 +152,8 @@ if (( $+commands[fzf] )); then
     joshskidmore/zsh-fzf-history-search
   # disable sort in git show
   zstyle ':completion:complete:git-show:argument-rest' sort false
+  # increase fzf height
+  export FZF_TMUX_HEIGHT="90%"
 fi
 # ]]]
 # run delayed_commands
