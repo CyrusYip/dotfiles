@@ -16,12 +16,12 @@ cmd rename2 %[ -e $1 ] && printf "file exists" || mv $f $1
 cmd ps !echo $fx | tr " " "\n"
 # zoxide
 cmd z %{{
-    result="$(zoxide query --exclude "${PWD}" -- "$1")"
-    lf -remote "send ${id} cd '${result}'"
+  result="$(zoxide query --exclude "${PWD}" -- "$1")"
+  lf -remote "send ${id} cd '${result}'"
 }}
 cmd zi ${{
-    result="$(zoxide query -i -- "$1")"
-    lf -remote "send ${id} cd '${result}'"
+  result="$(zoxide query -i -- "$1")"
+  lf -remote "send ${id} cd '${result}'"
 }}
 # trash-cli
 cmd trash %trash-put $fx
@@ -29,20 +29,20 @@ cmd trash %trash-put $fx
 cmd fzf $vim $(fzf)
 # open text files with $EDITOR
 cmd open ${{
-    test -L $f && f=$(readlink -f $f)
-    case $(file --mime-type $f -b) in
-        text/*) $EDITOR $fx;;
-        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
-    esac
+  test -L $f && f=$(readlink -f $f)
+  case $(file --mime-type $f -b) in
+    text/*) $EDITOR $fx;;
+    *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+  esac
 }}
 # extract with ark
 cmd extract ${{
-    clear; tput cup $(($(tput lines)/3)); tput bold
-    set -f
-    printf "%s\n\t" "$fx"
-    printf "extract?[y/N]"
-    read ans
-    [ $ans = "y" ] && ark --batch --autosubfolder $fx
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  printf "%s\n\t" "$fx"
+  printf "extract?[y/N]"
+  read ans
+  [ $ans = "y" ] && ark --batch --autosubfolder $fx
 }}
 # ]]]
 # map[[[1
@@ -54,4 +54,4 @@ map X !$f
 # custom rename
 map r push :rename2<space>
 # ]]]
-# vim: foldmethod=marker foldmarker=[[[,]]]
+# vim: foldmethod=marker foldmarker=[[[,]]] shiftwidth=2 expandtab
