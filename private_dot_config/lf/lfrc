@@ -8,6 +8,7 @@ set relativenumber
 set drawbox
 set scrolloff 10
 set hidden
+set previewer ~/.config/lf/preview
 # ]]]
 # command[[[1
 # custom 'rename' command
@@ -24,7 +25,14 @@ cmd zi ${{
   lf -remote "send ${id} cd '${result}'"
 }}
 # trash-cli
-cmd trash %trash-put $fx
+cmd trash ${{
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  printf "%s\n\t" "$fx"
+  printf "trash?[y/N]"
+  read ans
+  [ $ans = "y" ] && trash-put $fx
+}}
 # fzf with vim
 cmd fzf $vim $(fzf)
 # open text files with $EDITOR
@@ -53,5 +61,7 @@ map x $$f
 map X !$f
 # custom rename
 map r push :rename2<space>
+# pager
+map i $LESSOPEN='| ~/.config/lf/preview %s' less -R $f
 # ]]]
 # vim: foldmethod=marker foldmarker=[[[,]]] shiftwidth=2 expandtab
