@@ -6,5 +6,6 @@ case "$1" in
   *.rar) unrar l "$1";;
   *.7z) 7z l "$1";;
   *.pdf) pdftotext "$1" -;;
-  *) highlight -O ansi "$1";;
+  *) bat --terminal-width "$(($4-6))" --force-colorization --style=snip "$1" \
+    || fold --width "$(($4-6))" "$1" || cat "$1" ;;
 esac
