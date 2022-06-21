@@ -63,5 +63,6 @@ map X !$f
 map r push :rename2<space>
 # pager
 map i $LESSOPEN='| ~/.config/lf/preview %s' less -R $f
+map I $bat --force-colorization --paging always $f || cat $f | less
 # ]]]
 # vim: foldmethod=marker foldmarker=[[[,]]] shiftwidth=2 expandtab
