@@ -135,7 +135,7 @@ zinit light-mode for \
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light romkatv/zsh-defer
 
-zinit wait lucid light-mode for \
+zinit wait"1" lucid light-mode for \
   blockf \
     zsh-users/zsh-completions \
   atinit"zicompinit; zicdreplay" \
@@ -148,7 +148,7 @@ zinit wait lucid light-mode for \
     # zdharma-continuum/history-search-multi-word \
 
 if (( $+commands[fzf] )); then
-  zinit wait lucid light-mode for \
+  zinit wait"1" lucid light-mode for \
     Aloxaf/fzf-tab \
     joshskidmore/zsh-fzf-history-search
   # disable sort in git show
@@ -158,7 +158,7 @@ if (( $+commands[fzf] )); then
 fi
 # ]]]
 # run delayed_commands
-zsh-defer delayed_commands
+zsh-defer -t 1 delayed_commands
 else
   delayed_commands
 fi
