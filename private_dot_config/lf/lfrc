@@ -34,7 +34,19 @@ cmd trash ${{
   [ $ans = "y" ] && trash-put $fx
 }}
 # fzf with vim
-cmd fzf $vim $(fzf)
+cmd fzfv $vim $(fzf)
+# fzf jump
+cmd fzf ${{
+    res="$(find . | fzf --reverse --header='Jump to location' | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
 # open text files with $EDITOR
 cmd open ${{
   test -L $f && f=$(readlink -f $f)
