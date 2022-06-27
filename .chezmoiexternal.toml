@@ -1,4 +1,4 @@
 ["scripts"]
     type = "git-repo"
     url = "https://github.com/CyrusYip/scripts"
-    refreshPeriod = "1s"
+    # refreshPeriod = "1s"
