@@ -11,12 +11,10 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 # ]]]
-# auto complete, prompt, editor[[[1
-# completion, prompt
-autoload -Uz compinit promptinit
+# auto complete, editor[[[1
+# completion
+autoload -Uz compinit
 compinit
-promptinit
-prompt walters
 # editor
 export EDITOR='vim'
 # lowercase matches uppercase
@@ -161,6 +159,10 @@ fi
 zsh-defer -t 1 delayed_commands
 else
   delayed_commands
+  # prompt
+  autoload -Uz promptinit
+  promptinit
+  prompt walters
 fi
 # ]]]
 # set fold and filetype in vim
