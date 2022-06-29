@@ -227,6 +227,9 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   " explicitly initialize plugins[[[2
   call peekaboo#on()
   execute 'Sleuth'
+  execute 'TagalongInit'
+  " show file info
+  execute 'file'
   " ]]]
   " rainbow[[[2
   let g:rainbow_active = 1
@@ -277,8 +280,6 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
                                 \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
   " ]]]
   " ]]]
-  " show file info
-  execute 'file'
   endfunction
   if has('timers')
     call timer_start(500, 'DelayLoading')
