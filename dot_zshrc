@@ -156,7 +156,7 @@ if (( $+commands[fzf] )); then
 fi
 # ]]]
 # run delayed_commands
-zsh-defer -t 1 delayed_commands
+zsh-defer -t 0.1 delayed_commands
 else
   delayed_commands
   # prompt
