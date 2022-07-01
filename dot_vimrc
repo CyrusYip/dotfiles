@@ -252,7 +252,8 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   autocmd! User GoyoEnter nested call <SID>goyo_enter()
   autocmd! User GoyoLeave nested call <SID>goyo_leave()
   " ]]]
-  " coc.nvim keybindings[[[2
+  " coc.nvim[[[2
+  let g:coc_disable_transparent_cursor = 1
   " Use tab for trigger completion with characters ahead and navigate.
   " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
   " other plugin before putting this into your config.
