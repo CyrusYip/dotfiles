@@ -134,7 +134,7 @@ nnoremap <leader>f :LF<CR>
 command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
 
 " UP: upgrade all plugins and managers
-command! UP PlugClean | PlugUpdate | PlugUpgrade | JetpackSync
+command UP exec '!curl -fLo ~/.vim/plugin/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim' | PlugClean | PlugUpdate | PlugUpgrade | JetpackSync
 
 " ]]]
 " only load plugins after installing vim-jetpack
