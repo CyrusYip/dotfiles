@@ -11,7 +11,7 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 # ]]]
-# auto complete, editor[[[1
+# auto complete, editor, setopt[[[1
 # completion
 autoload -Uz compinit
 compinit
@@ -22,10 +22,13 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 # enable comment
 setopt interactive_comments
+# enter directory without cd
+setopt autocd
+# match hidden files
+setopt globdots
 # ]]]
 # keybindings[[[1
 # vi keybindings in menu
-setopt autocd
 bindkey -v
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
