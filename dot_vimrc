@@ -134,17 +134,15 @@ nnoremap <leader>f :LF<CR>
 command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
 
 " UP: upgrade all plugins and managers
-command UP
-\ silent exec '!curl -fLo ~/.vim/plugin/jetpack.vim --create-dirs
-\ https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim'
-\ | PlugClean | PlugUpdate | PlugUpgrade | JetpackSync
+command UP PlugClean | PlugUpdate | JetpackSync | PlugUpgrade
 
 " ]]]
 " only load plugins after installing vim-jetpack
-if !empty(glob('~/.vim/plugin/jetpack.vim'))
+if !empty(glob('~/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'))
 " plugins[[[1
-  runtime */jetpack.vim
+  packadd vim-jetpack
   call jetpack#begin()
+  Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   Jetpack 'alker0/chezmoi.vim'
   Jetpack 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-jetpack']}
   Jetpack 'itchyny/lightline.vim'
