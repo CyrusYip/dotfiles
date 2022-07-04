@@ -150,16 +150,15 @@ zinit wait"1" lucid light-mode for \
     kutsan/zsh-system-clipboard \
     OMZL::directories.zsh \
     OMZP::git
-    # zdharma-continuum/history-search-multi-word \
 
 if (( $+commands[fzf] )); then
   zinit wait"1" lucid light-mode for \
     Aloxaf/fzf-tab \
     joshskidmore/zsh-fzf-history-search
-  # disable sort in git show
-  zstyle ':completion:complete:git-show:argument-rest' sort false
-  # increase fzf height
-  export FZF_TMUX_HEIGHT="90%"
+    # disable sort in git show
+    zstyle ':completion:complete:git-show:argument-rest' sort false
+    # increase fzf height
+    export FZF_TMUX_HEIGHT="90%"
 fi
 # ]]]
 # run delayed_commands
