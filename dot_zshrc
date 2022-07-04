@@ -26,6 +26,10 @@ setopt interactive_comments
 setopt autocd
 # match hidden files
 setopt globdots
+# history
+setopt share_history     # auto write and read
+setopt extended_history  # record timestamp
+setopt hist_ignore_space # ignore commands starting from space
 # ]]]
 # keybindings[[[1
 # vi keybindings in menu
