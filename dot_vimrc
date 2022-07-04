@@ -70,7 +70,7 @@ set expandtab       " Expand TABs to spaces
 set ignorecase smartcase
 
 " whitespaces
-set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,space:·
+set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,space:·,multispace:···⬝,leadmultispace:---+
 ":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 set list
 "]]]
