@@ -66,6 +66,8 @@ cmd extract ${{
 }}
 # ]]]
 # map[[[1
+# command mode
+map gy push :
 # use enter for shell commands
 map <enter> shell
 # zoxide
