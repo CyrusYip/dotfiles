@@ -118,6 +118,10 @@ au VimEnter * if &diff | execute 'windo set wrap' | endif
 " ]]]
 " ]]]
 " keybindings, commands[[[1
+" command line mode
+nnoremap gy :
+vnoremap gy :
+
 " clear search highlight 
 nnoremap <esc><esc> :noh<return><esc>
 
