@@ -10,8 +10,11 @@ fi
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+setopt share_history     # auto write and read
+setopt extended_history  # record timestamp
+setopt hist_ignore_space # ignore commands starting from space
 # ]]]
-# auto complete, editor, setopt[[[1
+# auto complete, editor, options[[[1
 # completion
 autoload -Uz compinit
 compinit
@@ -26,10 +29,6 @@ setopt interactive_comments
 setopt autocd
 # match hidden files
 setopt globdots
-# history
-setopt share_history     # auto write and read
-setopt extended_history  # record timestamp
-setopt hist_ignore_space # ignore commands starting from space
 # ]]]
 # keybindings[[[1
 # vi keybindings in menu
