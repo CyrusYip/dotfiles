@@ -68,9 +68,9 @@ cmd extract ${{
 # map[[[1
 # use enter for shell commands
 map <enter> shell
-# execute current file (must be executable)
-map x $$f
-map X !$f
+# zoxide
+map xx push :z<space>
+map xi push :zi<space>
 # custom rename
 map r push :rename2<space>
 # pager
