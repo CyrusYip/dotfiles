@@ -1,3 +1,7 @@
 README.md
 install-deps.sh
 clean.sh
+
+# ignore gpg and ssh keys
+.ssh
+.gnupg
