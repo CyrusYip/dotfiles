@@ -3,8 +3,17 @@ README.md
 install-deps.sh
 clean.sh
 
-# ignore gpg and ssh keys
+# ignore ssh keys
 .ssh
+**/id_ed25519
+**/id_ed25519.pub
+**/id_rsa
+**/id_rsa.pub
+
+# ignore gpg keys
 .gnupg
+**/*.key
+**/*.pgp
+**/*.asc
 
 # vim: commentstring=#\ %s
