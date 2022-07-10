@@ -47,6 +47,7 @@ bindkey "^[[1;5D" backward-word
 # save pinky
 alias x=z
 alias xi=zi
+alias ch=chezmoi
 # ]]]
 # powerlevel10k[[[1
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
