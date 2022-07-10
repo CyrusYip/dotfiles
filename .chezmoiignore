@@ -1,3 +1,4 @@
+# repo file
 README.md
 install-deps.sh
 clean.sh
@@ -5,3 +6,5 @@ clean.sh
 # ignore gpg and ssh keys
 .ssh
 .gnupg
+
+# vim: commentstring=#\ %s
