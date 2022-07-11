@@ -1,0 +1,11 @@
+# ignore ssh keys
+.ssh
+id_ed25519
+id_rsa
+*.pub
+
+# ignore gpg keys
+.gnupg
+*.key
+*.pgp
+*.asc

@@ -12,6 +12,7 @@
 	{{ if eq .chezmoi.os "linux" -}}
 	autocrlf = input
 	{{- end }}
+	excludesfile = ~/.gitignore_global
 [gui]
 	encoding = utf-8
 [i18n]
