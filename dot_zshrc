@@ -48,6 +48,8 @@ bindkey "^[[1;5D" backward-word
 alias x=z
 alias xi=zi
 alias ch=chezmoi
+# check updates for Arch repos and AUR
+alias cu='tmux split-window -h "yito; read"; checkupdates'
 # ]]]
 # powerlevel10k[[[1
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
