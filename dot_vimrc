@@ -110,7 +110,8 @@ set hidden
 " search all subdirectory of current directory
 set path+=**
 
-" vertical wildmenu
+" wildmenu
+set wildmode=longest:full,full
 set wildoptions=pum
 
 " auto wrap in vimdiff
