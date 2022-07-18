@@ -110,8 +110,8 @@ set hidden
 " search all subdirectory of current directory
 set path+=**
 
-" vertical and fuzzy wildmenu
-set wildoptions=fuzzy,pum
+" vertical wildmenu
+set wildoptions=pum
 
 " auto wrap in vimdiff
 au VimEnter * if &diff | execute 'windo set wrap' | endif
