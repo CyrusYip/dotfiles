@@ -1,0 +1,4 @@
+# remove old jetpack
+.vim/plugin/jetpack.vim 
+
+# vim: commentstring=#\ %s
