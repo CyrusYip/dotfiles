@@ -207,19 +207,20 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   Plug 'AndrewRadev/tagalong.vim'
   Plug 'easymotion/vim-easymotion'
   Plug 'godlygeek/tabular' " for vim-markdown
+  Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/vim-peekaboo'
-  if executable('fcitx5')
-    Plug 'lilydjwg/fcitx.vim'
-  endif
   Plug 'luochen1990/rainbow'
   Plug 'machakann/vim-highlightedyank'
   Plug 'simnalamburt/vim-mundo'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-sleuth'
   Plug 'tpope/vim-surround'
+  if executable('fcitx5')
+    Plug 'lilydjwg/fcitx.vim'
+  endif
   " ]]]
   " need dependencies[[[2
   if executable('node')
@@ -237,6 +238,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   call peekaboo#on()
   execute 'Sleuth'
   execute 'TagalongInit'
+  call AutoPairsTryInit()
   " show file info
   execute 'file'
   " ]]]
