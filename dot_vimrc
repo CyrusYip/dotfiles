@@ -206,6 +206,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   Plug '907th/vim-auto-save'
   Plug 'AndrewRadev/tagalong.vim'
   Plug 'easymotion/vim-easymotion'
+  Plug 'gelguy/wilder.nvim'
   Plug 'godlygeek/tabular' " for vim-markdown
   Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -226,6 +227,8 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   if executable('node')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
   endif
+  Plug 'roxma/nvim-yarp'           " for wilder.nvim in vim
+  Plug 'roxma/vim-hug-neovim-rpc'  " for wilder.nvim in vim
   " ]]]
   " profile[[[2
   " Plug 'dstein64/vim-startuptime'
@@ -244,6 +247,28 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   " ]]]
   " rainbow[[[2
   let g:rainbow_active = 1
+  " ]]]
+  " wilder.nvim[[[2
+  call wilder#setup({
+    \ 'modes': [':', '/', '?'],
+    \ 'enable_cmdline_enter': 0,
+    \ })
+  call wilder#set_option('renderer', wilder#popupmenu_renderer({
+    \ 'highlighter': wilder#basic_highlighter(),
+    \ }))
+  call wilder#set_option('pipeline', [
+    \   wilder#branch(
+    \     wilder#cmdline_pipeline({
+    \       'language': 'python',
+    \       'fuzzy': 1,
+    \     }),
+    \     wilder#python_search_pipeline({
+    \       'pattern': wilder#python_fuzzy_pattern(),
+    \       'sorter': wilder#python_difflib_sorter(),
+    \       'engine': 're',
+    \     }),
+    \   ),
+    \ ])
   " ]]]
   " goyo callbacks[[[2
   function! s:goyo_enter()
