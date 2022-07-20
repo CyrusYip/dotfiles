@@ -299,7 +299,11 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   endif
   " ]]]
-  " coc.nvim lsp[[[2
+  " coc.nvim extensions[[[2
+  " extensions
+  let g:coc_global_extensions = [
+      \ 'coc-vimlsp',
+      \ ]
   " coc-vimlsp
   let g:markdown_fenced_languages = [
       \ 'vim',
