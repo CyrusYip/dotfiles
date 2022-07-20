@@ -114,6 +114,9 @@ set path+=**
 set wildmode=longest:full,full
 set wildoptions=pum
 
+" ask to save
+set confirm
+
 " auto wrap in vimdiff
 au VimEnter * if &diff | execute 'windo set wrap' | endif
 " ]]]
