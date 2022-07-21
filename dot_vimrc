@@ -117,6 +117,9 @@ set wildoptions=pum
 " ask to save
 set confirm
 
+" show search count
+set shortmess-=S
+
 " auto wrap in vimdiff
 au VimEnter * if &diff | execute 'windo set wrap' | endif
 " ]]]
