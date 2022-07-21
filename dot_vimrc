@@ -254,7 +254,6 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   " wilder.nvim[[[2
   call wilder#setup({
     \ 'modes': [':', '/', '?'],
-    \ 'enable_cmdline_enter': 0,
     \ })
   call wilder#set_option('renderer', wilder#popupmenu_renderer({
     \ 'highlighter': wilder#basic_highlighter(),
