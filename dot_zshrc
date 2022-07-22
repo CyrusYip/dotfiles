@@ -23,6 +23,8 @@ export EDITOR='vim'
 # lowercase matches uppercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
+# auto completion at the beginning
+zstyle ':completion:*' insert-tab false
 # enable comment
 setopt interactive_comments
 # enter directory without cd
