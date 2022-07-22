@@ -262,7 +262,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     \   wilder#branch(
     \     wilder#cmdline_pipeline({
     \       'language': 'python',
-    \       'fuzzy': 1,
+    \       'fuzzy': 2,
     \     }),
     \     wilder#python_search_pipeline({
     \       'pattern': wilder#python_fuzzy_pattern(),
