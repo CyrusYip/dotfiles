@@ -215,6 +215,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/vim-peekaboo'
+  Plug 'lambdalisue/fern.vim'
   Plug 'luochen1990/rainbow'
   Plug 'machakann/vim-highlightedyank'
   Plug 'simnalamburt/vim-mundo'
@@ -288,6 +289,10 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
 
   autocmd! User GoyoEnter nested call <SID>goyo_enter()
   autocmd! User GoyoLeave nested call <SID>goyo_leave()
+  " ]]]
+  " fern.vim[[[2
+  nnoremap <silent> <Leader>e :Fern . -drawer -toggle<CR>
+  let g:fern#default_hidden = 1
   " ]]]
   " coc.nvim keybindings[[[2
   " Use tab for trigger completion with characters ahead and navigate.
