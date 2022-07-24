@@ -1,0 +1,6 @@
+// coc-settings.json
+{
+  "diagnostic.checkCurrentLine": true
+}
+
+// vim: commentstring=//\ %s
