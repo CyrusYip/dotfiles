@@ -373,7 +373,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   " ]]]
   endfunction
   if has('timers')
-    call timer_start(500, 'DelayLoading')
+    call timer_start(0, 'DelayLoading')
   else
     call DelayLoading('')
   endif
