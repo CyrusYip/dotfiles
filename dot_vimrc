@@ -358,12 +358,23 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-sh',
+  \ 'coc-explorer',
+  \ 'coc-json',
   \ ]
   " coc-vimlsp
   let g:markdown_fenced_languages = [
   \ 'vim',
   \ 'help'
   \]
+  " coc-explorer
+  nmap <Leader>e <Cmd>CocCommand explorer<CR>
+  function! s:init_explorer()
+    set relativenumber
+  endfunction
+  augroup CocExplorerCustom
+    autocmd!
+    autocmd FileType coc-explorer call <SID>init_explorer()
+  augroup END
   " ]]]2
   " ]]]
   endfunction
