@@ -120,6 +120,9 @@ set confirm
 " show search count
 set shortmess-=S
 
+" make ctrl-d normal
+set nostartofline
+
 " auto wrap in vimdiff
 au VimEnter * if &diff | execute 'windo set wrap' | endif
 " ]]]
