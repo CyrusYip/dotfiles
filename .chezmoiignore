@@ -3,16 +3,19 @@ README.md
 install-deps.sh
 clean.sh
 
-# ignore ssh keys
+# ssh keys
 .ssh
 **/id_ed25519
 **/id_rsa
 **/*.pub
 
-# ignore gpg keys
+# gpg keys
 .gnupg
 **/*.key
 **/*.pgp
 **/*.asc
+
+# fcitx5 cache
+.config/fcitx5/conf/cached_layouts
 
 # vim: commentstring=#\ %s
