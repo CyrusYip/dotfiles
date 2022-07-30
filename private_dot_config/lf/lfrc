@@ -8,6 +8,7 @@ set relativenumber
 set drawbox
 set scrolloff 10
 set hidden
+set incsearch
 set previewer ~/.config/lf/preview
 # ]]]
 # command[[[1
