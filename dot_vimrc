@@ -366,6 +366,10 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   let g:coc_global_extensions = [
   \ 'coc-vimlsp',
   \ 'coc-sh',
+  \ 'coc-emmet',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-tsserver',
   \ ]
   " coc-vimlsp
   let g:markdown_fenced_languages = [
