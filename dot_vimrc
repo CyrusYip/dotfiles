@@ -125,6 +125,9 @@ set nostartofline
 
 " auto wrap in vimdiff
 au VimEnter * if &diff | execute 'windo set wrap' | endif
+
+"
+set autoread
 " ]]]
 " ]]]
 " keybindings, commands[[[1
