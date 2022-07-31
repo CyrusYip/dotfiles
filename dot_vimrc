@@ -359,6 +359,8 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   " ]]]
   " coc.nvim config[[[2
   let g:coc_disable_transparent_cursor = 1
+  " Don't pass messages to |ins-completion-menu|.
+  set shortmess+=c
   " Highlight the symbol and its references when holding the cursor.
   set updatetime=300
   autocmd CursorHold * silent call CocActionAsync('highlight')
