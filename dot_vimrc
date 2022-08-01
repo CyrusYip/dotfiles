@@ -249,8 +249,6 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   call peekaboo#on()
   execute 'Sleuth'
   execute 'TagalongInit'
-  " show file info
-  execute 'file'
   " ]]]
   " rainbow[[[2
   let g:rainbow_active = 1
@@ -382,6 +380,8 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   \]
   " ]]]2
   " ]]]
+  " show file info at last to indicate plugin are loaded
+  execute 'file'
   endfunction
   if has('timers')
     call timer_start(0, 'DelayLoading')
