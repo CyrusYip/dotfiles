@@ -217,7 +217,6 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   Plug 'easymotion/vim-easymotion'
   Plug 'gelguy/wilder.nvim'
   Plug 'godlygeek/tabular' " for vim-markdown
-  Plug 'jiangmiao/auto-pairs'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/vim-peekaboo'
@@ -250,7 +249,6 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   call peekaboo#on()
   execute 'Sleuth'
   execute 'TagalongInit'
-  call AutoPairsTryInit()
   " show file info
   execute 'file'
   " ]]]
@@ -375,6 +373,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   \ 'coc-html',
   \ 'coc-css',
   \ 'coc-tsserver',
+  \ 'coc-pairs',
   \ ]
   " coc-vimlsp
   let g:markdown_fenced_languages = [
