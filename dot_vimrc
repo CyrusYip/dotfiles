@@ -323,6 +323,9 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     inoremap <silent><expr> <c-@> coc#refresh()
   endif
 
+  " completion background color for everforest
+  hi CocMenuSel ctermbg=109 guibg=#e8dcb6
+
   " Use `[g` and `]g` to navigate diagnostics
   " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
   nmap <silent> [g <Plug>(coc-diagnostic-prev)
