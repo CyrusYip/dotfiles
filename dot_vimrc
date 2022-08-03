@@ -131,28 +131,15 @@ set autoread
 " ]]]
 " ]]]
 " keybindings, commands[[[1
-" <Leader> to space
 let mapleader = "\<space>"
-
-" command line mode
 nnoremap <leader>d :
 vnoremap <leader>d :
-
-" clear search highlight 
 nnoremap <esc><esc> :noh<return><esc>
-
-" replace grep with rg
-set grepprg=rg\ --vimgrep\ --smart-case\ --follow
-
-" lf
-nnoremap <leader>f :LF<CR>
-
+nnoremap <leader>l :LF<CR>
 " Cv: clean vim, used for fast macro replaying
 command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
-
 " UP: upgrade all plugins and managers
 command UP PlugClean | PlugUpdate | JetpackSync | PlugUpgrade | CocUpdate
-
 " ]]]
 " only load plugins after installing vim-jetpack
 if !empty(glob('~/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'))
