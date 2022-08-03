@@ -136,6 +136,10 @@ nnoremap <leader>d :
 vnoremap <leader>d :
 nnoremap <esc><esc> :noh<return><esc>
 nnoremap <leader>l :LF<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>c :q<CR>
+nnoremap <leader>x :wq<CR>
 " Cv: clean vim, used for fast macro replaying
 command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
 " UP: upgrade all plugins and managers
