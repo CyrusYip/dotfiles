@@ -131,18 +131,18 @@ set autoread
 " ]]]
 " ]]]
 " keybindings, commands[[[1
+" <Leader> to space
+let mapleader = "\<space>"
+
 " command line mode
-nnoremap gy :
-vnoremap gy :
+nnoremap <leader>d :
+vnoremap <leader>d :
 
 " clear search highlight 
 nnoremap <esc><esc> :noh<return><esc>
 
 " replace grep with rg
 set grepprg=rg\ --vimgrep\ --smart-case\ --follow
-
-" <Leader> to space
-let mapleader = "\<space>"
 
 " lf
 nnoremap <leader>f :LF<CR>
@@ -333,7 +333,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
 
   " GoTo code navigation.
   nmap <silent> gd <Plug>(coc-definition)
-  " nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
 
