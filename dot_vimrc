@@ -135,11 +135,15 @@ let mapleader = "\<space>"
 nnoremap <leader>d :
 vnoremap <leader>d :
 nnoremap <silent> <esc><esc> :noh<return><esc>
+nnoremap <silent> <leader>w :w<CR>
+nnoremap <silent> <leader>W :wa<CR>
+nnoremap <silent> <leader>c :q<CR>
+nnoremap <silent> <leader>C :qa<CR>
+nnoremap <silent> <leader>x :wq<CR>
+nnoremap <silent> <leader>X :wqa<CR>
+nnoremap <silent> <leader>s :AutoSaveToggle<CR>
 nnoremap <silent> <leader>l :LF<CR>
 nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>w :w<CR>
-nnoremap <silent> <leader>c :q<CR>
-nnoremap <silent> <leader>x :wq<CR>
 " Cv: clean vim, used for fast macro replaying
 command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
 " UP: upgrade all plugins and managers
