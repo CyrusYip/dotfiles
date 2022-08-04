@@ -244,6 +244,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   silent call peekaboo#on()
   silent execute 'Sleuth'
   silent execute 'TagalongInit'
+  let $BAT_THEME='Monokai Extended Light' " fix preview in fzf 
   " ]]]
   " rainbow[[[2
   let g:rainbow_active = 1
