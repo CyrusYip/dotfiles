@@ -237,9 +237,9 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   " ]]]
   " delayed plugin configs[[[1
   " explicitly initialize plugins[[[2
-  call peekaboo#on()
-  execute 'Sleuth'
-  execute 'TagalongInit'
+  silent call peekaboo#on()
+  silent execute 'Sleuth'
+  silent execute 'TagalongInit'
   " ]]]
   " rainbow[[[2
   let g:rainbow_active = 1
