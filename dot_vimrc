@@ -144,10 +144,13 @@ nnoremap <silent> <leader>X :xa<CR>
 nnoremap <silent> <leader>s :AutoSaveToggle<CR>
 nnoremap <silent> <leader>l :LF<CR>
 nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>j :JO<CR>
 " Cv: clean vim, used for fast macro replaying
 command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
 " UP: upgrade all plugins and managers
 command UP PlugClean | PlugUpdate | JetpackSync | PlugUpgrade | CocUpdate
+" JO: copy Joplin note to another file
+command JO w ~/Desktop/joplin-tmp.md | tabnew ~/Desktop/joplin-tmp.md | silent AutoSaveToggle
 " ]]]
 " only load plugins after installing vim-jetpack
 if !empty(glob('~/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'))
