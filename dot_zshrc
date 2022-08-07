@@ -50,6 +50,7 @@ bindkey "^[[1;5D" backward-word
 alias x=z
 alias xi=zi
 alias ch=chezmoi
+alias v=vim
 # check updates for Arch repos and AUR
 alias cu='tmux split-window -h "yito; read"; checkupdates; paru -Qua --devel'
 # ]]]
