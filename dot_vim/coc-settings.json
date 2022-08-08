@@ -1,7 +1,10 @@
 // coc-settings.json
 {
   "diagnostic.checkCurrentLine": true,
-  "coc.source.file.ignoreHidden": false
+  "coc.source.file.ignoreHidden": false,
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt"
+  }
 }
 
 // vim: filetype=jsonc
