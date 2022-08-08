@@ -353,6 +353,8 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   " Highlight the symbol and its references when holding the cursor.
   autocmd CursorHold * silent call CocActionAsync('highlight')
 
+  " Remap keys for applying codeAction to the current buffer.
+  nmap <leader>ac  <Plug>(coc-codeaction)
   " Apply AutoFix to problem on the current line.
   nmap <leader>qf  <Plug>(coc-fix-current)
 
@@ -388,6 +390,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   \ 'coc-pairs',
   \ 'coc-snippets',
   \ 'coc-diagnostic',
+  \ 'coc-json',
   \ ]
   " coc-vimlsp
   let g:markdown_fenced_languages = [
