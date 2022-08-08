@@ -350,6 +350,9 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
     endif
   endfunction
 
+  " Symbol renaming
+  nmap <leader>rn <Plug>(coc-rename)
+
   " keybindings for scrollable popup
   if has('nvim-0.4.0') || has('patch-8.2.0750')
     nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -377,6 +380,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   \ 'coc-css',
   \ 'coc-tsserver',
   \ 'coc-pairs',
+  \ 'coc-snippets',
   \ ]
   " coc-vimlsp
   let g:markdown_fenced_languages = [
