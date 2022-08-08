@@ -1,6 +1,7 @@
 // coc-settings.json
 {
-  "diagnostic.checkCurrentLine": true
+  "diagnostic.checkCurrentLine": true,
+  "coc.source.file.ignoreHidden": false
 }
 
-// vim: commentstring=//\ %s
+// vim: filetype=jsonc
