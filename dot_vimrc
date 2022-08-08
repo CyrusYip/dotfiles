@@ -361,6 +361,12 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   " Symbol renaming
   nmap <leader>rn <Plug>(coc-rename)
 
+  " Formatting(beautifying) selected code.
+  nnoremap <silent> <leader>b :Format<CR>
+
+  " Add `:Format` command to format current buffer.
+  command -nargs=0 Format :call CocActionAsync('format')
+
   " keybindings for scrollable popup
   if has('nvim-0.4.0') || has('patch-8.2.0750')
     nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
