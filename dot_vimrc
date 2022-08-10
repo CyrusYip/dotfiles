@@ -387,16 +387,17 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   autocmd CursorHold * silent call CocActionAsync('highlight')
   " extensions
   let g:coc_global_extensions = [
-  \ 'coc-vimlsp',
-  \ 'coc-sh',
+  \ 'coc-css',
+  \ 'coc-diagnostic',
   \ 'coc-emmet',
   \ 'coc-html',
-  \ 'coc-css',
-  \ 'coc-tsserver',
-  \ 'coc-pairs',
-  \ 'coc-snippets',
-  \ 'coc-diagnostic',
   \ 'coc-json',
+  \ 'coc-pairs',
+  \ 'coc-prettier',
+  \ 'coc-sh',
+  \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-vimlsp',
   \ ]
   " coc-vimlsp
   let g:markdown_fenced_languages = [
