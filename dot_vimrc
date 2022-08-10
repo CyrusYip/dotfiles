@@ -151,6 +151,8 @@ nnoremap <silent> <leader>mf :TableFormat<CR>
 nnoremap <silent> <leader>mt :Toc<CR>
 " Cv: clean vim, used for fast macro replaying
 command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
+" CleanCocExtensions
+command CleanCocExtensions !rm -r ~/.config/coc/extensions/ && echo 'removed'
 " UP: upgrade all plugins and managers
 command UP PlugClean | PlugUpdate | JetpackSync | PlugUpgrade | CocUpdate
 " JO: copy Joplin note to another file
