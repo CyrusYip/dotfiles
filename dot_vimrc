@@ -126,9 +126,6 @@ set nostartofline
 " auto wrap in vimdiff
 au VimEnter * if &diff | execute 'windo set wrap' | endif
 
-" read simplified and traditional Chinese
-set fileencodings=ucs-bom,utf-8,cp936,cp950,default,latin1
-
 "
 set autoread
 " ]]]
