@@ -120,6 +120,9 @@ set confirm
 " show search count
 set shortmess-=S
 
+" remove intro message to reduce redrawing
+set shortmess+=I
+
 " make ctrl-d normal
 set nostartofline
 
