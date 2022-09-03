@@ -148,6 +148,9 @@ zinit light romkatv/zsh-defer
 zinit wait"1" lucid light-mode for \
   blockf \
     zsh-users/zsh-completions \
+  blockf \
+    spwhitt/nix-zsh-completions \
+  chisui/zsh-nix-shell \
   atinit"zicompinit; zicdreplay" \
     zdharma-continuum/fast-syntax-highlighting \
   atload"_zsh_autosuggest_start" \
