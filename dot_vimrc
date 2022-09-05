@@ -197,6 +197,9 @@ set laststatus=2
 set noshowmode
 let g:lightline = {
       \ 'colorscheme': 'everforest',
+      \ 'active': {
+        \ 'left': [ [ 'paste' ],[ 'readonly', 'filename', 'modified' ] ],
+      \ }
       \ }
 " ]]]
 " vim-markdown[[[2
