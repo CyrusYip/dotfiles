@@ -15,9 +15,6 @@ setopt extended_history  # record timestamp
 setopt hist_ignore_space # ignore commands starting from space
 # ]]]
 # auto complete, editor, options[[[1
-# completion
-autoload -Uz compinit
-compinit
 # editor
 export EDITOR='vim'
 # lowercase matches uppercase
@@ -175,6 +172,9 @@ fi
 zsh-defer -t 0.1 delayed_commands
 else
   delayed_commands
+  # completion
+  autoload -Uz compinit
+  compinit
   # prompt
   autoload -Uz promptinit
   promptinit
