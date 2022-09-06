@@ -57,7 +57,6 @@ delayed_commands() {
   # PATH
   export PATH=~/bin:$PATH
   export PATH=~/scripts/scripts:$PATH
-  if [ -d ~/.nix-profile/bin ]; then export PATH=~/.nix-profile/bin:$PATH; fi
   # use exa
   if (( $+commands[exa] )); then
     alias ls='exa'
