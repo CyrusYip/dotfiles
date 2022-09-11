@@ -1,4 +1,6 @@
-# remove old jetpack
+# old jetpack
 .vim/plugin/jetpack.vim 
 
+# old CyrusYip/scripts
+scripts
 # vim: commentstring=#\ %s

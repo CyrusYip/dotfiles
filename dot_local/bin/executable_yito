@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+# yito
+#   Diff tool for archlinuxcn repo, used to show differences of PKGBUILDs
+#   before upgrading the system. Cache is stored in '~/.cache/yito', you can
+#   delete it safely.
+
+# Author: Cyrus Yip <https://github.com/CyrusYip>
+
+update_repo(){
+  yito_dir=~/.cache/yito
+  repo_dir=$yito_dir/repo
+  # create repo
+  if [ ! -d $repo_dir ]; then
+    mkdir --parents $yito_dir
+    git clone https://github.com/archlinuxcn/repo.git $repo_dir
+  # update repo
+  else
+    cd $repo_dir && git pull
+  fi
+}
+
+get_packages(){
+  mapfile -t packages < <(paclist archlinuxcn | grep --perl-regexp --only-matching ".+(?=\ )")
+  echo -e "\nInstalled packages:"
+  echo "${packages[@]}"
+}
+
+get_updated_time(){
+  updated_time=$(tac /var/log/pacman.log | grep --max-count 1 --extended-regexp "starting full system upgrade" | grep --perl-regexp --only-matching "(?<=\[)\d+.+?(?=\])")
+  echo -e "\nupdated time:"
+  echo "$updated_time"
+  last_commit=$(git rev-list --until="$updated_time" --all| head -n 1)
+  echo -e "\nlast commit:"
+  echo "$last_commit"
+}
+
+diff(){
+  package_paths=""
+  for i in "${packages[@]}"; do
+    package_paths+="archlinuxcn/$i "
+  done
+  echo -e "\nrunning:"
+  echo "git diff $last_commit HEAD -- $package_paths"
+  git diff "$last_commit" HEAD -- $package_paths
+}
+
+# remove_repo(){}
+
+update_repo
+get_packages
+get_updated_time
+diff
+
+# vim: textwidth=80 shiftwidth=2 expandtab
