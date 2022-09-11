@@ -56,7 +56,7 @@ alias cu='tmux split-window -h "yito; read"; checkupdates; paru -Qua --devel'
 delayed_commands() {
   # PATH
   export PATH=~/bin:$PATH
-  export PATH=~/scripts/scripts:$PATH
+  export PATH=~/.local/bin:$PATH
   # use exa
   if (( $+commands[exa] )); then
     alias ls='exa'

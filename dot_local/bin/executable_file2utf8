@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# convert file in other encoding to utf-8
+# this script only works in current directory
+
+for i in "$@"; do
+  encoding=$(uchardet "$i")
+  if [[ "$encoding" != "UTF-8" ]]; then
+    iconv -f "$encoding" -t UTF-8 "$i" > "UTF-8.$i"
+    echo "$i: $encoding, converted to UTF-8"
+  else
+    echo "$i: $encoding"
+  fi
+done

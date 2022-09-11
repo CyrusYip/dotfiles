@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+# dependencies: wget, curl, tar, grep
+
+# variables and constants
+readonly DOWNLOAD_DIRECTORY=$HOME/.cache/neovim-prerelease
+readonly DOWNLOADED_ARCHIVE=$DOWNLOAD_DIRECTORY/nvim-linux64.tar.gz
+readonly EXTRACTED_ARCHIVE=$DOWNLOAD_DIRECTORY/nvim-linux64
+readonly CHECKSUM=$DOWNLOAD_DIRECTORY/nvim-linux64.tar.gz.sha256sum
+readonly EXECUTABLE=$DOWNLOAD_DIRECTORY/nvim-linux64/bin/nvim
+readonly local_version=`$EXECUTABLE --version | head -n 1`
+readonly latest_version=`curl --location https://github.com/neovim/neovim/releases/tag/nightly | grep "NVIM v.*" --only-matching | head -n 1`
+
+# compare
+echo -e "local version : $local_version"
+echo -e "latest version: $latest_version"
+if [ "$local_version" = "$latest_version" ];then
+  echo "Local version is up-to-date."
+  exit
+else
+  read -p "Continue to download latest version? [Y,n]" answer
+  if [ "${answer,,}" == "n" ]; then
+    exit
+  fi
+fi
+
+# download
+if [ ! -d $DOWNLOAD_DIRECTORY ]; then
+  mkdir --parents $DOWNLOAD_DIRECTORY
+fi
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz \
+  https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz.sha256sum \
+  --directory-prefix=$DOWNLOAD_DIRECTORY
+cd $DOWNLOAD_DIRECTORY
+sha256sum --check $CHECKSUM || exit
+rm -r $EXTRACTED_ARCHIVE && echo "deleted old $EXTRACTED_ARCHIVE"
+tar xzf $DOWNLOADED_ARCHIVE --directory=$DOWNLOAD_DIRECTORY
+rm -r $DOWNLOADED_ARCHIVE $CHECKSUM
+readonly current_version=`$EXECUTABLE --version | head -n 3`
+echo -e "\nprevious version:\n$local_version"
+echo -e "\ncurrent versoin:\n$current_version"
+echo -e "\nNeovim prerelease is downloaded to $DOWNLOAD_DIRECTORY"
+echo -e "\nExecutable is located at $EXECUTABLE"
+echo -e "\nYou can make add alias to your shell config such as .bashrc and .zshrc"
+echo -e "\nalias nnv=$EXECUTABLE"

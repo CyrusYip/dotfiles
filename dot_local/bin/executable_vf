@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# open file with any encoding in vim
+
+encoding=$(uchardet "$1")
+vim -c "e ++enc=$encoding $1"
+echo "$encoding"
+
+# command below doesn't work if vimrc has 'set fileencodings='
+# vim --cmd "set fileencodings=$encoding" "$1"
