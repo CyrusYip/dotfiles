@@ -31,7 +31,7 @@ setopt globdots
 # ]]]
 # keybindings[[[1
 # vi keybindings in menu
-bindkey -v
+bindkey -v '^?' backward-delete-char
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
