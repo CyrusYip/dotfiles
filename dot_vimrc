@@ -131,6 +131,7 @@ au VimEnter * if &diff | execute 'windo set wrap' | endif
 
 "
 set autoread
+set timeoutlen=500 " for vim-which-key
 " ]]]
 " ]]]
 " keybindings, commands[[[1
@@ -154,6 +155,7 @@ nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>j :JO<CR>
 nnoremap <silent> <leader>mf :TableFormat<CR>
 nnoremap <silent> <leader>mt :Toc<CR>
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " Cv: clean vim, used for fast macro replaying
 command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
 " CleanCocExtensions
@@ -243,6 +245,7 @@ if !empty(glob('~/.vim/autoload/plug.vim'))
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/vim-peekaboo'
   Plug 'lambdalisue/fern.vim'
+  Plug 'liuchengxu/vim-which-key'
   Plug 'luochen1990/rainbow'
   Plug 'machakann/vim-highlightedyank'
   Plug 'simnalamburt/vim-mundo'
