@@ -45,12 +45,15 @@ bindkey "^[[1;5D" backward-word
 # alias[[[1
 # save pinky
 alias ch=chezmoi
+alias cu='tmux split-window -h "yito; read"; checkupdates; paru -Qua --devel' # check updates for Arch repos and AUR
+alias mn=pacman
 alias nnv=$HOME/.cache/neovim-prerelease/nvim-linux64/bin/nvim
+alias ru=paru
+alias s='sudo '
+alias uu='sudo pacman -Syu'
 alias v=vim
 alias x=z
 alias xi=zi
-# check updates for Arch repos and AUR
-alias cu='tmux split-window -h "yito; read"; checkupdates; paru -Qua --devel'
 # ]]]
 # delayed commands[[[1
 delayed_commands() {
