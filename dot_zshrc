@@ -44,11 +44,11 @@ bindkey "^[[1;5D" backward-word
 # ]]]
 # alias[[[1
 # save pinky
+alias ch=chezmoi
+alias nnv=$HOME/.cache/neovim-prerelease/nvim-linux64/bin/nvim
+alias v=vim
 alias x=z
 alias xi=zi
-alias ch=chezmoi
-alias v=vim
-alias nnv=$HOME/.cache/neovim-prerelease/nvim-linux64/bin/nvim
 # check updates for Arch repos and AUR
 alias cu='tmux split-window -h "yito; read"; checkupdates; paru -Qua --devel'
 # ]]]
