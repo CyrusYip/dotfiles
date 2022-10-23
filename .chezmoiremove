@@ -3,4 +3,11 @@
 
 # old CyrusYip/scripts
 scripts
+
+# deprecated files
+.pam_environment
+
+# obsolete for Fcitx5
+.xinitrc
+
 # vim: commentstring=#\ %s
