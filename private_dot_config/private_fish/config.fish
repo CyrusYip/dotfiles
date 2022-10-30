@@ -3,6 +3,7 @@ if status is-interactive
     fish_vi_key_bindings
 end
 
-if [ -x "$(command -v thefuck)" ]
-    thefuck --alias | source
-end
+# this makes fish slow to start
+# if [ -x "$(command -v thefuck)" ]
+#     thefuck --alias | source
+# end
