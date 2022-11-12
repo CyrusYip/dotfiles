@@ -51,6 +51,7 @@ alias nnv=$HOME/.cache/neovim-prerelease/nvim-linux64/bin/nvim
 alias ru=paru
 alias ruu='paru -Syu --needed linux{,-lts,-zen}{,-headers}'
 alias s='sudo '
+alias t=tmux
 alias uu='sudo pacman -Syu'
 alias uuu='sudo pacman -Syu --needed linux{,-lts,-zen}{,-headers}'
 alias v=vim
