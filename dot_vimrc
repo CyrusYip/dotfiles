@@ -170,12 +170,13 @@ if !empty(glob('~/.vim/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'))
 " plugins[[[1
   packadd vim-jetpack
   call jetpack#begin()
-  Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
+  Jetpack 'LnL7/vim-nix'
   Jetpack 'alker0/chezmoi.vim'
   Jetpack 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-jetpack']}
   Jetpack 'itchyny/lightline.vim'
   Jetpack 'preservim/vim-markdown', { 'for': 'markdown' }
   Jetpack 'sainnhe/everforest'
+  Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   call jetpack#end()
 " ]]]
 " configs[[[1
