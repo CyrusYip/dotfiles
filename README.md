@@ -35,6 +35,9 @@ chezmoi init CyrusYip
 chezmoi apply --dry-run --verbose
 # install dotfiles
 chezmoi apply --verbose
+# install additional dependencies (optional)
+chezmoi cd
+./install-deps.sh
 ```
 
 ### Method 2: merge
@@ -46,4 +49,7 @@ With this method, you manually merge existing dotfiles and my dotfiles with `vim
 chezmoi init CyrusYip
 # compare and get what you needs
 chezmoi merge-all
+# install additional dependencies (optional)
+chezmoi cd
+./install-deps.sh
 ```
