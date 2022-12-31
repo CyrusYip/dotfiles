@@ -1,12 +1,16 @@
 {
     "mapping": {
-        "1,70,1": [
+        "1,99,1": [
             "BTN_LEFT",
             "mouse"
         ],
-        "1,119,1": [
+        "1,70,1": [
             "BTN_RIGHT",
             "mouse"
+        ],
+        "1,119,1": [
+            "KEY_PRINT",
+            "keyboard"
         ]
     }
 }
