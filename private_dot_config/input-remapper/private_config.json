@@ -1,0 +1,23 @@
+{
+    "version": "1.5.0",
+    "autoload": {
+        "Keyboard K380 Keyboard": "new preset",
+        "HID 2704:2018": "treadle",
+        "HID 2704:2018 2": "treadle",
+        "RAPOO BT4.0 Mouse": "left-hand",
+        "BT5.0 Mouse": "left-hand"
+    },
+    "macros": {
+        "keystroke_sleep_ms": 0
+    },
+    "gamepad": {
+        "joystick": {
+            "non_linearity": 4,
+            "pointer_speed": 80,
+            "left_purpose": "none",
+            "right_purpose": "none",
+            "x_scroll_speed": 2,
+            "y_scroll_speed": 0.5
+        }
+    }
+}

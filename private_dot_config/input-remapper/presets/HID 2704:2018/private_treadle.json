@@ -1,0 +1,20 @@
+{
+    "mapping": {
+        "1,15,1": [
+            "if_single(key(KEY_TAB), hold(Shift_L), timeout=250)",
+            "keyboard"
+        ],
+        "1,28,1": [
+            "if_single(key(Return), hold(Super_L), timeout=250)",
+            "keyboard"
+        ],
+        "1,1,1": [
+            "if_single(key(KEY_ESC), hold(Control_L), timeout=250)",
+            "keyboard"
+        ],
+        "1,14,1": [
+            "if_single(key(BackSpace), hold_keys(Control_L,Shift_L), timeout=250)",
+            "keyboard"
+        ]
+    }
+}

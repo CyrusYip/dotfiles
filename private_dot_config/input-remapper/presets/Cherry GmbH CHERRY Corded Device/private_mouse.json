@@ -1,0 +1,12 @@
+{
+    "mapping": {
+        "1,70,1": [
+            "BTN_LEFT",
+            "mouse"
+        ],
+        "1,119,1": [
+            "BTN_RIGHT",
+            "mouse"
+        ]
+    }
+}
