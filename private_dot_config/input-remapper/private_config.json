@@ -5,7 +5,8 @@
         "HID 2704:2018": "treadle",
         "HID 2704:2018 2": "treadle",
         "RAPOO BT4.0 Mouse": "left-hand",
-        "BT5.0 Mouse": "left-hand"
+        "BT5.0 Mouse": "left-hand",
+        "RAPOO 5.0MS Mouse": "left-hand"
     },
     "macros": {
         "keystroke_sleep_ms": 0
