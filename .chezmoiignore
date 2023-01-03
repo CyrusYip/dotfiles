@@ -18,4 +18,7 @@ clean.sh
 # fcitx5 cache
 .config/fcitx5/conf/cached_layouts
 
+# empty input-remapper config
+.config/input-remapper/presets/**/new preset.json
+
 # vim: commentstring=#\ %s
