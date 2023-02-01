@@ -116,6 +116,8 @@ delayed_commands() {
           fi
       fi
   }
+  # don't let Home Manager manage shell
+  source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 }
 # ]]]
 # load plugins if zinit installed[[[1
