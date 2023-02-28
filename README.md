@@ -53,3 +53,12 @@ chezmoi merge-all
 chezmoi cd
 ./install-deps.sh
 ```
+
+## Home Manager How-to
+
+```
+# update flakes
+nix flake update ~/.config/nixpkgs
+# build and activate configuration
+home-manager switch --flake ~/.config/nixpkgs/
+```
