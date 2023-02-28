@@ -56,7 +56,7 @@ chezmoi cd
 
 ## Home Manager How-to
 
-```
+```bash
 # update flakes
 nix flake update ~/.config/nixpkgs
 # build and activate configuration
