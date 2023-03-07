@@ -1,5 +1,6 @@
 " show number
 set relativenumber number
+let mapleader = "\<space>"
 "set numberwidth=1
 set showmode
 set so=5
