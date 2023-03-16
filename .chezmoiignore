@@ -2,6 +2,7 @@
 README.md
 install-deps.sh
 clean.sh
+etc/
 
 # ssh keys
 .ssh
