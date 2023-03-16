@@ -3,6 +3,7 @@ README.md
 install-deps.sh
 clean.sh
 etc/
+broken_config/
 
 # ssh keys
 .ssh
