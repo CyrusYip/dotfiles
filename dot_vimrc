@@ -88,6 +88,9 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+" colorscheme
+colorscheme slate
+
 " mouse in tmux
 set ttymouse=xterm2
 "]]]
