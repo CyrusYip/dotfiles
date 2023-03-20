@@ -71,7 +71,7 @@ set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,space:·,multispace:�
 ":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 "set list
 "]]]
-" true color, background, mouse[[[2
+" true color, background[[[2
 " true color
 if (has("termguicolors"))
   set termguicolors
@@ -90,9 +90,6 @@ endif
 
 " colorscheme
 colorscheme slate
-
-" mouse in tmux
-set ttymouse=xterm2
 "]]]
 " cursor shape[[[2
 " https://stackoverflow.com/a/70135079/14399237
