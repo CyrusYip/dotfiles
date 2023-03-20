@@ -67,8 +67,8 @@ set expandtab       " Expand TABs to spaces
 set ignorecase smartcase
 
 " whitespaces
-set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,space:·,multispace:···⬝ " ,leadmultispace:---+
-":set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,multispace:···⬝
+" space:·, space:␣ ,leadmultispace:---+
 "set list
 "]]]
 " true color, background[[[2
@@ -145,6 +145,8 @@ nnoremap <silent> <leader>x :x<CR>
 nnoremap <silent> <leader>X :xa<CR>
 " wrap
 nnoremap <silent> <leader>rr :set wrap!<CR>
+" list
+nnoremap <silent> <leader>i :set list!<CR>
 " plugin
 nnoremap <silent> <leader>s :AutoSaveToggle<CR>
 nnoremap <silent> <leader>l :LF<CR>
