@@ -96,9 +96,9 @@ set ttymouse=xterm2
 "]]]
 " cursor shape[[[2
 " https://stackoverflow.com/a/70135079/14399237
-let &t_SI.="\e[6 q" "SI = INSERT mode, 6 = solid line
-let &t_SR.="\e[4 q" "SR = REPLACE mode, 4 = solid underscore
-let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE), 2 = solid block
+let &t_SI.="\e[5 q"
+let &t_SR.="\e[3 q"
+let &t_EI.="\e[1 q"
 "]]]
 " other[[[2
 " filetype plugin
