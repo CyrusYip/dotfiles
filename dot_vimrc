@@ -66,8 +66,13 @@ set expandtab       " Expand TABs to spaces
 " case insensitive
 set ignorecase smartcase
 
-" whitespaces
-set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<,multispace:···⬝
+" whitespaces, prefer multispace to space
+set listchars=eol:¬,tab:>␣,trail:~,extends:>,precedes:<
+try
+  set listchars+=multispace:···⬝
+catch
+  set listchars+=space:·
+endtry
 " space:·, space:␣ ,leadmultispace:---+
 "set list
 "]]]
