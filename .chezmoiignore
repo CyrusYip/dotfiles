@@ -23,4 +23,9 @@ broken_config/
 # empty input-remapper config
 .config/input-remapper/presets/**/new preset.json
 
+# fish astronaut prompt doesn't work on Debian stable
+{{- if eq .chezmoi.hostname "pve" }}
+.config/fish/functions
+{{- end }}
+
 # vim: commentstring=#\ %s
