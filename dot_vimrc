@@ -95,6 +95,7 @@ endif
 
 " colorscheme
 colorscheme slate
+set laststatus=2
 "]]]
 " cursor shape[[[2
 " https://stackoverflow.com/a/70135079/14399237
