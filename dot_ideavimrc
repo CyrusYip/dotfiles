@@ -1,6 +1,5 @@
 " show number
 set relativenumber number
-let mapleader = "\<space>"
 "set numberwidth=1
 set showmode
 set so=5
@@ -15,3 +14,16 @@ set keep-english-in-normal
 set commentary
 set surround
 Plug 'machakann/vim-highlightedyank'
+
+" keybindings
+let mapleader = "\<space>"
+nnoremap <leader>d :
+vnoremap <leader>d :
+nnoremap <silent> <esc><esc> :noh<return><esc>
+" save and exit
+nnoremap <silent> <leader>w :update<CR>
+nnoremap <silent> <leader>W :wa<CR>
+nnoremap <silent> <leader>c :q<CR>
+nnoremap <silent> <leader>C :qa<CR>
+nnoremap <silent> <leader>x :x<CR>
+nnoremap <silent> <leader>X :xa<CR>
