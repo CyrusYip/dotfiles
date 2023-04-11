@@ -27,3 +27,5 @@ nnoremap <silent> <leader>c :q<CR>
 nnoremap <silent> <leader>C :qa<CR>
 nnoremap <silent> <leader>x :x<CR>
 nnoremap <silent> <leader>X :xa<CR>
+
+set nrformats+=alpha " manipulate alphabetical characters

@@ -135,6 +135,7 @@ au VimEnter * if &diff | execute 'windo set wrap' | endif
 "
 set autoread
 set timeoutlen=500 " for vim-which-key
+set nrformats+=alpha " manipulate alphabetical characters
 " ]]]
 " ]]]
 " keybindings, commands[[[1
