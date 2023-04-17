@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # activate Shizuku and Brevent
-# other useful apps: App Ops, Ice Box, 小黑屋
+# other useful apps: App Ops, Hail
 
+# shizuku
 adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh
-adb shell sh /data/data/me.piebridge.brevent/brevent.sh
+# brevent
+adb -d shell 'output=$(pm path me.piebridge.brevent); export CLASSPATH=${output#*:}; app_process /system/bin me.piebridge.brevent.server.BreventServer bootstrap; /system/bin/sh /data/local/tmp/brevent.sh'
