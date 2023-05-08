@@ -7,3 +7,6 @@
 adb shell sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh
 # brevent
 adb -d shell 'output=$(pm path me.piebridge.brevent); export CLASSPATH=${output#*:}; app_process /system/bin me.piebridge.brevent.server.BreventServer bootstrap; /system/bin/sh /data/local/tmp/brevent.sh'
+
+# activate shizuku via brevent
+# sh /sdcard/Android/data/moe.shizuku.privileged.api/start.sh
