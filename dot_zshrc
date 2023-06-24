@@ -30,6 +30,9 @@ setopt autocd
 setopt globdots
 # ]]]
 # keybindings[[[1
+# reduce Esc delays to 0.05s
+export KEYTIMEOUT=5
+
 # vi keybindings in menu
 bindkey -v '^?' backward-delete-char
 zmodload zsh/complist
@@ -38,7 +41,7 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-# control arrow to jump words
+# Ctrl+Arrow to jump words
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 # ]]]
