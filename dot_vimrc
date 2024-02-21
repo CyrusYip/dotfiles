@@ -155,13 +155,13 @@ nnoremap <silent> <leader>rr :set wrap!<CR>
 " list
 nnoremap <silent> <leader>i :set list!<CR>
 " plugin
-nnoremap <silent> <leader>s :AutoSaveToggle<CR>
-nnoremap <silent> <leader>l :LF<CR>
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>j :JO<CR>
-nnoremap <silent> <leader>mf :TableFormat<CR>
-nnoremap <silent> <leader>mt :Toc<CR>
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" nnoremap <silent> <leader>s :AutoSaveToggle<CR>
+" nnoremap <silent> <leader>l :LF<CR>
+" nnoremap <silent> <leader>f :Files<CR>
+" nnoremap <silent> <leader>j :JO<CR>
+" nnoremap <silent> <leader>mf :TableFormat<CR>
+" nnoremap <silent> <leader>mt :Toc<CR>
+" nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " Cv: clean vim, used for fast macro replaying
 command Cv silent! w | wviminfo | !vim -c 'set rnu nuw=1' -c 'file' --clean -i ~/.viminfo %
 " CleanCocExtensions
