@@ -152,7 +152,9 @@ nnoremap <silent> <leader>x :x<CR>
 nnoremap <silent> <leader>X :xa<CR>
 " search
 nnoremap <leader>f /
+vnoremap <leader>f /
 nnoremap <leader>b ?
+vnoremap <leader>b ?
 " wrap
 nnoremap <silent> <leader>rr :set wrap!<CR>
 " list
