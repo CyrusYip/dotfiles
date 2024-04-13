@@ -50,6 +50,7 @@ bindkey "^[[1;5D" backward-word
 alias ch=chezmoi
 alias cho='chezmoi --source ~/.local/share/chezmoi-private' # o=own
 alias cu='tmux split-window -h "yito; read"; checkupdates; paru -Qua --devel' # check updates for Arch repos and AUR
+alias lg=lazygit
 alias mn=pacman
 alias mnn='sudo pacman'
 alias nnv=$HOME/.cache/neovim-prerelease/nvim-linux64/bin/nvim
