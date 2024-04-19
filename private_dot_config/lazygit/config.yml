@@ -1,2 +1,4 @@
 gui:
   scrollHeight: 5
+git:
+  overrideGpg: true # fix "Feature not available for users using GPG" when rewording a commit
