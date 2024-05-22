@@ -4,7 +4,7 @@ set relativenumber number
 set showmode
 set so=5
 set incsearch
-set clipboard+=unnamed
+set clipboard^=unnamed,unnamedplus
 set wildmenu
 set ruler
 set hlsearch
