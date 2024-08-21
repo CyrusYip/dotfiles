@@ -62,3 +62,7 @@ nix flake update ~/.config/nixpkgs
 # build and activate configuration
 home-manager switch --flake ~/.config/nixpkgs/
 ```
+
+## License
+
+This repository is licensed under [unlicense](LICENSE). Attribution is not required but is appreciated.
